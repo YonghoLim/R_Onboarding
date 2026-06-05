@@ -44,6 +44,12 @@ You need both **R** and **RStudio** installed.
 
 - R does the actual computing.
 - RStudio gives you a friendly place to write and run R code.
+
+### Install Links
+- [R download](https://cran.r-project.org/) - available for Windows/Mac/Linux
+- [RStudio Desktop download](https://posit.co/download/rstudio-desktop) - available for Windows/Mac/Linux
+
+Make sure you install R first, then RStudio. RStudio will ask you to locate your R installation when you open it for the first time.
 :::
 
 ## Why are we using R in this course?
@@ -57,7 +63,7 @@ Instead of only doing calculations by hand, you will learn how to:
 - Check your work.
 - Share your results.
 
-You do not need to become a professional programmer. The goal is to become comfortable using R as a tool for learning and data analysis.
+You do not need to become a professional programmer. The goal is to become comfortable using R as a tool for learning and Statistical data analysis.
 
 ## Learning Objectives
 

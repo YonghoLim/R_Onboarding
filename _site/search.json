@@ -1,62 +1,142 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Welcome",
+    "objectID": "10-cheatsheet.html",
+    "href": "10-cheatsheet.html",
+    "title": "Quick Reference Cheat Sheet",
     "section": "",
-    "text": "Welcome to the BU R Onboarding Guide!\nThis guide is for students who are using R and RStudio for the first time. You do not need any previous programming experience. We will go step by step.\nBy the end of this guide, you will be able to:\n\nOpen RStudio.\nUnderstand the main parts of the RStudio screen.\nWrite and run simple R code.\nSave your work in an R script.\nUnderstand the difference between R scripts, R Markdown, and Quarto documents.\nOrganize your project files.\nImport a CSV dataset into R.\nView and summarize your data.\nCreate simple results such as means, tables, and plots.\n\n\n\nR is a programming language used for working with data.\nYou can use R to:\n\nStore data.\nClean data.\nSummarize data.\nMake graphs.\nRun statistical analyses.\nCreate reports.\n\nIn this course, we will use R because it helps us work carefully and clearly with data.\n\n\n\nRStudio is a program that makes R easier to use.\nThink of R as the engine, and RStudio as the dashboard. R does the calculations, while RStudio gives you buttons, panels, files, and tools that make your work easier to manage.\n\n\n\n\n\n\nTipTip\n\n\n\nYou need both R and RStudio installed.\n\nR does the actual computing.\nRStudio gives you a friendly place to write and run R code.\n\n\n\n\n\n\nWe are using R because it helps you learn how to work with real data.\nInstead of only doing calculations by hand, you will learn how to:\n\nAsk questions about data.\nUse code to answer those questions.\nCheck your work.\nShare your results.\n\nYou do not need to become a professional programmer. The goal is to become comfortable using R as a tool for learning and data analysis.\n\n\n\nAfter completing this onboarding guide, you should be able to:\n\nIdentify the main parts of RStudio.\nCreate and save an R script.\nRun basic R commands.\nExplain what a Quarto document is.\nSet up a simple project folder.\nDownload and import a CSV file.\nUse basic commands to inspect a dataset.\nCalculate a mean, make a frequency table, and create a simple plot.\n\n\n\n\n\n\n\nNoteBefore You Start\n\n\n\nIt is okay if you make mistakes. Everyone does when learning R.\nA big part of learning R is reading error messages, fixing small problems, and trying again.\n\n\n\n\n\nGo to 1. Getting Familiar with RStudio.",
+    "text": "This page summarizes the most important commands and tips from the guide.\n\n\n\n\n\nAction\nWindows\nMac\n\n\n\n\nRun current line\nCtrl + Enter\nCmd + Enter\n\n\nSave file\nCtrl + S\nCmd + S\n\n\nFind text\nCtrl + F\nCmd + F\n\n\nComment/uncomment code\nCtrl + Shift + C\nCmd + Shift + C\n\n\n\n\n\n\n\n\n\nPane\nPurpose\n\n\n\n\nSource\nWrite and save code\n\n\nConsole\nRun commands and see output\n\n\nEnvironment\nSee objects you created\n\n\nFiles\nFind files and folders\n\n\nPlots\nView graphs\n\n\nPackages\nManage add-on tools\n\n\nHelp\nSearch for help\n\n\n\n\n\n\n\n\n\nGoal\nCommand\n\n\n\n\nAdd numbers\n2 + 3\n\n\nStore a value\nx &lt;- 10\n\n\nPrint a value\nprint(x)\n\n\nCheck working directory\ngetwd()\n\n\nCheck if a file exists\nfile.exists(\"mydata.csv\")\n\n\nImport CSV\ndata &lt;- read.csv(\"mydata.csv\")\n\n\nView first rows\nhead(data)\n\n\nView structure\nstr(data)\n\n\nSummarize data\nsummary(data)\n\n\nView column names\nnames(data)\n\n\nCalculate a mean\nmean(data$quiz_score)\n\n\nMake a frequency table\ntable(data$major)\n\n\nMake a plot\nplot(data$study_hours, data$quiz_score)\n\n\n\n\n\n\n\nKeep your script and data file in the same project folder.\nUse clear file names.\nAvoid spaces in file names.\nUse underscores _ instead of spaces.\nAvoid saving important files only in Downloads.\nCheck your working directory with getwd().\nCheck whether R can find your file with file.exists().\n\n\n\n\nGood:\nfirst_script.R\nmydata.csv\nlab_report.qmd\nAvoid:\nUntitled1.R\nmy data final FINAL.csv\nlab report new version 2.qmd\n\n\n\nUse:\ndata &lt;- read.csv(\"mydata.csv\")\nThen inspect it:\nhead(data)\nstr(data)\nsummary(data)\nnames(data)\n\n\n\nMean:\nmean(data$quiz_score)\nFrequency table:\ntable(data$major)\nScatterplot:\nplot(\n  data$study_hours,\n  data$quiz_score,\n  main = \"Study Hours and Quiz Score\",\n  xlab = \"Study Hours\",\n  ylab = \"Quiz Score\"\n)\nHistogram:\nhist(\n  data$quiz_score,\n  main = \"Distribution of Quiz Scores\",\n  xlab = \"Quiz Score\"\n)\n\n\n\n\n\n\n\n\n\n\nProblem\nPossible Fix\n\n\n\n\nFile not found\nCheck getwd() and file.exists(\"mydata.csv\")\n\n\nObject not found\nRun the code that creates the object\n\n\nTyping mistake\nCheck spelling and capitalization\n\n\nMissing quote\nPut file names in quotation marks\n\n\nMissing parenthesis\nMake sure every ( has a matching )\n\n\nRendering error\nRun the document from top to bottom and check earlier code\n\n\nPackage problem\nCheck spelling, install the package, then load it with library()\n\n\n\n\n\n\nIf R cannot find your CSV file, try this:\ngetwd()\nfile.exists(\"mydata.csv\")\nIf file.exists(\"mydata.csv\") gives:\n[1] FALSE\nthen R cannot find the file in the current folder.\nCheck that:\n\nThe file is saved in your project folder.\nThe file name is exactly mydata.csv.\nThe file is not accidentally named mydata.csv.txt.\nYou are working in the correct folder.\n\n\n\n\nGood object names:\nquiz_score &lt;- 90\nstudy_hours &lt;- 6\nmy_data &lt;- read.csv(\"mydata.csv\")\nAvoid object names with spaces:\nquiz score &lt;- 90\nstudy hours &lt;- 6\nmy data &lt;- read.csv(\"mydata.csv\")\n\n\n\n\nSave your script often.\nRun code one small piece at a time.\nRead error messages slowly.\nCheck spelling carefully.\nKeep your data and script in the same folder.\nWrite short comments to explain your code.\nExplain your results in sentences.\n\n\n\n\nHere is a simple workflow from start to finish:\n# Check where R is looking for files\ngetwd()\n\n# Check whether the data file exists\nfile.exists(\"mydata.csv\")\n\n# Import the data\ndata &lt;- read.csv(\"mydata.csv\")\n\n# Look at the data\nhead(data)\nstr(data)\nsummary(data)\n\n# Calculate results\nmean(data$quiz_score)\ntable(data$major)\n\n# Make a plot\nplot(\n  data$study_hours,\n  data$quiz_score,\n  main = \"Study Hours and Quiz Score\",\n  xlab = \"Study Hours\",\n  ylab = \"Quiz Score\",\n  pch = 19,\n  col = \"steelblue\"\n)\n\n\n\nYou now know how to complete a first basic R workflow:\n\nOpen RStudio.\nCreate a script.\nWrite code.\nSave your work.\nOrganize your files.\nImport a CSV dataset.\nInspect the data.\nCalculate simple results.\nExplain what the results mean.\n\nThat is a successful first R workflow!",
     "crumbs": [
-      "Welcome"
+      "Quick Reference Cheat Sheet"
     ]
   },
   {
-    "objectID": "index.html#what-is-r",
-    "href": "index.html#what-is-r",
-    "title": "Welcome",
+    "objectID": "10-cheatsheet.html#rstudio-shortcuts",
+    "href": "10-cheatsheet.html#rstudio-shortcuts",
+    "title": "Quick Reference Cheat Sheet",
     "section": "",
-    "text": "R is a programming language used for working with data.\nYou can use R to:\n\nStore data.\nClean data.\nSummarize data.\nMake graphs.\nRun statistical analyses.\nCreate reports.\n\nIn this course, we will use R because it helps us work carefully and clearly with data.",
+    "text": "Action\nWindows\nMac\n\n\n\n\nRun current line\nCtrl + Enter\nCmd + Enter\n\n\nSave file\nCtrl + S\nCmd + S\n\n\nFind text\nCtrl + F\nCmd + F\n\n\nComment/uncomment code\nCtrl + Shift + C\nCmd + Shift + C",
     "crumbs": [
-      "Welcome"
+      "Quick Reference Cheat Sheet"
     ]
   },
   {
-    "objectID": "index.html#what-is-rstudio",
-    "href": "index.html#what-is-rstudio",
-    "title": "Welcome",
+    "objectID": "10-cheatsheet.html#important-rstudio-panes",
+    "href": "10-cheatsheet.html#important-rstudio-panes",
+    "title": "Quick Reference Cheat Sheet",
     "section": "",
-    "text": "RStudio is a program that makes R easier to use.\nThink of R as the engine, and RStudio as the dashboard. R does the calculations, while RStudio gives you buttons, panels, files, and tools that make your work easier to manage.\n\n\n\n\n\n\nTipTip\n\n\n\nYou need both R and RStudio installed.\n\nR does the actual computing.\nRStudio gives you a friendly place to write and run R code.",
+    "text": "Pane\nPurpose\n\n\n\n\nSource\nWrite and save code\n\n\nConsole\nRun commands and see output\n\n\nEnvironment\nSee objects you created\n\n\nFiles\nFind files and folders\n\n\nPlots\nView graphs\n\n\nPackages\nManage add-on tools\n\n\nHelp\nSearch for help",
     "crumbs": [
-      "Welcome"
+      "Quick Reference Cheat Sheet"
     ]
   },
   {
-    "objectID": "index.html#why-are-we-using-r-in-this-course",
-    "href": "index.html#why-are-we-using-r-in-this-course",
-    "title": "Welcome",
+    "objectID": "10-cheatsheet.html#common-r-commands",
+    "href": "10-cheatsheet.html#common-r-commands",
+    "title": "Quick Reference Cheat Sheet",
     "section": "",
-    "text": "We are using R because it helps you learn how to work with real data.\nInstead of only doing calculations by hand, you will learn how to:\n\nAsk questions about data.\nUse code to answer those questions.\nCheck your work.\nShare your results.\n\nYou do not need to become a professional programmer. The goal is to become comfortable using R as a tool for learning and data analysis.",
+    "text": "Goal\nCommand\n\n\n\n\nAdd numbers\n2 + 3\n\n\nStore a value\nx &lt;- 10\n\n\nPrint a value\nprint(x)\n\n\nCheck working directory\ngetwd()\n\n\nCheck if a file exists\nfile.exists(\"mydata.csv\")\n\n\nImport CSV\ndata &lt;- read.csv(\"mydata.csv\")\n\n\nView first rows\nhead(data)\n\n\nView structure\nstr(data)\n\n\nSummarize data\nsummary(data)\n\n\nView column names\nnames(data)\n\n\nCalculate a mean\nmean(data$quiz_score)\n\n\nMake a frequency table\ntable(data$major)\n\n\nMake a plot\nplot(data$study_hours, data$quiz_score)",
     "crumbs": [
-      "Welcome"
+      "Quick Reference Cheat Sheet"
     ]
   },
   {
-    "objectID": "index.html#learning-objectives",
-    "href": "index.html#learning-objectives",
-    "title": "Welcome",
+    "objectID": "10-cheatsheet.html#file-management-tips",
+    "href": "10-cheatsheet.html#file-management-tips",
+    "title": "Quick Reference Cheat Sheet",
     "section": "",
-    "text": "After completing this onboarding guide, you should be able to:\n\nIdentify the main parts of RStudio.\nCreate and save an R script.\nRun basic R commands.\nExplain what a Quarto document is.\nSet up a simple project folder.\nDownload and import a CSV file.\nUse basic commands to inspect a dataset.\nCalculate a mean, make a frequency table, and create a simple plot.\n\n\n\n\n\n\n\nNoteBefore You Start\n\n\n\nIt is okay if you make mistakes. Everyone does when learning R.\nA big part of learning R is reading error messages, fixing small problems, and trying again.",
+    "text": "Keep your script and data file in the same project folder.\nUse clear file names.\nAvoid spaces in file names.\nUse underscores _ instead of spaces.\nAvoid saving important files only in Downloads.\nCheck your working directory with getwd().\nCheck whether R can find your file with file.exists().",
     "crumbs": [
-      "Welcome"
+      "Quick Reference Cheat Sheet"
     ]
   },
   {
-    "objectID": "index.html#next-step",
-    "href": "index.html#next-step",
-    "title": "Welcome",
+    "objectID": "10-cheatsheet.html#good-file-names",
+    "href": "10-cheatsheet.html#good-file-names",
+    "title": "Quick Reference Cheat Sheet",
     "section": "",
-    "text": "Go to 1. Getting Familiar with RStudio.",
+    "text": "Good:\nfirst_script.R\nmydata.csv\nlab_report.qmd\nAvoid:\nUntitled1.R\nmy data final FINAL.csv\nlab report new version 2.qmd",
     "crumbs": [
-      "Welcome"
+      "Quick Reference Cheat Sheet"
+    ]
+  },
+  {
+    "objectID": "10-cheatsheet.html#importing-data",
+    "href": "10-cheatsheet.html#importing-data",
+    "title": "Quick Reference Cheat Sheet",
+    "section": "",
+    "text": "Use:\ndata &lt;- read.csv(\"mydata.csv\")\nThen inspect it:\nhead(data)\nstr(data)\nsummary(data)\nnames(data)",
+    "crumbs": [
+      "Quick Reference Cheat Sheet"
+    ]
+  },
+  {
+    "objectID": "10-cheatsheet.html#simple-analysis-examples",
+    "href": "10-cheatsheet.html#simple-analysis-examples",
+    "title": "Quick Reference Cheat Sheet",
+    "section": "",
+    "text": "Mean:\nmean(data$quiz_score)\nFrequency table:\ntable(data$major)\nScatterplot:\nplot(\n  data$study_hours,\n  data$quiz_score,\n  main = \"Study Hours and Quiz Score\",\n  xlab = \"Study Hours\",\n  ylab = \"Quiz Score\"\n)\nHistogram:\nhist(\n  data$quiz_score,\n  main = \"Distribution of Quiz Scores\",\n  xlab = \"Quiz Score\"\n)",
+    "crumbs": [
+      "Quick Reference Cheat Sheet"
+    ]
+  },
+  {
+    "objectID": "10-cheatsheet.html#common-errors-and-quick-fixes",
+    "href": "10-cheatsheet.html#common-errors-and-quick-fixes",
+    "title": "Quick Reference Cheat Sheet",
+    "section": "",
+    "text": "Problem\nPossible Fix\n\n\n\n\nFile not found\nCheck getwd() and file.exists(\"mydata.csv\")\n\n\nObject not found\nRun the code that creates the object\n\n\nTyping mistake\nCheck spelling and capitalization\n\n\nMissing quote\nPut file names in quotation marks\n\n\nMissing parenthesis\nMake sure every ( has a matching )\n\n\nRendering error\nRun the document from top to bottom and check earlier code\n\n\nPackage problem\nCheck spelling, install the package, then load it with library()",
+    "crumbs": [
+      "Quick Reference Cheat Sheet"
+    ]
+  },
+  {
+    "objectID": "10-cheatsheet.html#file-not-found-checklist",
+    "href": "10-cheatsheet.html#file-not-found-checklist",
+    "title": "Quick Reference Cheat Sheet",
+    "section": "",
+    "text": "If R cannot find your CSV file, try this:\ngetwd()\nfile.exists(\"mydata.csv\")\nIf file.exists(\"mydata.csv\") gives:\n[1] FALSE\nthen R cannot find the file in the current folder.\nCheck that:\n\nThe file is saved in your project folder.\nThe file name is exactly mydata.csv.\nThe file is not accidentally named mydata.csv.txt.\nYou are working in the correct folder.",
+    "crumbs": [
+      "Quick Reference Cheat Sheet"
+    ]
+  },
+  {
+    "objectID": "10-cheatsheet.html#object-names",
+    "href": "10-cheatsheet.html#object-names",
+    "title": "Quick Reference Cheat Sheet",
+    "section": "",
+    "text": "Good object names:\nquiz_score &lt;- 90\nstudy_hours &lt;- 6\nmy_data &lt;- read.csv(\"mydata.csv\")\nAvoid object names with spaces:\nquiz score &lt;- 90\nstudy hours &lt;- 6\nmy data &lt;- read.csv(\"mydata.csv\")",
+    "crumbs": [
+      "Quick Reference Cheat Sheet"
+    ]
+  },
+  {
+    "objectID": "10-cheatsheet.html#useful-beginner-habits",
+    "href": "10-cheatsheet.html#useful-beginner-habits",
+    "title": "Quick Reference Cheat Sheet",
+    "section": "",
+    "text": "Save your script often.\nRun code one small piece at a time.\nRead error messages slowly.\nCheck spelling carefully.\nKeep your data and script in the same folder.\nWrite short comments to explain your code.\nExplain your results in sentences.",
+    "crumbs": [
+      "Quick Reference Cheat Sheet"
+    ]
+  },
+  {
+    "objectID": "10-cheatsheet.html#a-complete-first-workflow",
+    "href": "10-cheatsheet.html#a-complete-first-workflow",
+    "title": "Quick Reference Cheat Sheet",
+    "section": "",
+    "text": "Here is a simple workflow from start to finish:\n# Check where R is looking for files\ngetwd()\n\n# Check whether the data file exists\nfile.exists(\"mydata.csv\")\n\n# Import the data\ndata &lt;- read.csv(\"mydata.csv\")\n\n# Look at the data\nhead(data)\nstr(data)\nsummary(data)\n\n# Calculate results\nmean(data$quiz_score)\ntable(data$major)\n\n# Make a plot\nplot(\n  data$study_hours,\n  data$quiz_score,\n  main = \"Study Hours and Quiz Score\",\n  xlab = \"Study Hours\",\n  ylab = \"Quiz Score\",\n  pch = 19,\n  col = \"steelblue\"\n)",
+    "crumbs": [
+      "Quick Reference Cheat Sheet"
+    ]
+  },
+  {
+    "objectID": "10-cheatsheet.html#final-reminder",
+    "href": "10-cheatsheet.html#final-reminder",
+    "title": "Quick Reference Cheat Sheet",
+    "section": "",
+    "text": "You now know how to complete a first basic R workflow:\n\nOpen RStudio.\nCreate a script.\nWrite code.\nSave your work.\nOrganize your files.\nImport a CSV dataset.\nInspect the data.\nCalculate simple results.\nExplain what the results mean.\n\nThat is a successful first R workflow!",
+    "crumbs": [
+      "Quick Reference Cheat Sheet"
     ]
   },
   {
@@ -410,6 +490,276 @@
     ]
   },
   {
+    "objectID": "02-first-script.html",
+    "href": "02-first-script.html",
+    "title": "2. Creating Your First R Script",
+    "section": "",
+    "text": "In this section, you will create your first R script.\n\n\nAn R script is a file where you write R code.\nR script files end with:\n.R\nFor example:\nfirst_script.R\nAn R script is useful because it saves your code. You can run the same code again later without retyping everything.\n\n\n\n\n\n\nTipTip\n\n\n\nUse an R script when you want to save your work.\nUse the Console when you want to quickly test one command.\n\n\n\n\n\nIn RStudio:\n\nClick File.\nClick New File.\nClick R Script.\n\n\n[Insert Screenshot: Creating a New R Script]\nShow File &gt; New File &gt; R Script.\n\nA blank script should open in the Source Pane.\n\n\n\nBefore we work with data, let’s try R as a calculator.\nType the following into your script:\n\n2 + 3\n\n[1] 5\n\n10 - 4\n\n[1] 6\n\n5 * 6\n\n[1] 30\n\n20 / 4\n\n[1] 5\n\n\nThese symbols mean:\n\n\n\nSymbol\nMeaning\n\n\n\n\n+\nAdd\n\n\n-\nSubtract\n\n\n*\nMultiply\n\n\n/\nDivide\n\n\n\n\n\n\n\n\n\nNoteTry It Yourself\n\n\n\nChange the numbers and run the code again.\nFor example, try:\n100 / 5\n12 * 3\n\n\n\n\n\nA variable is a name that stores a value.\nFor example:\n\nage &lt;- 18\nage\n\n[1] 18\n\n\nThe symbol &lt;- means “store this value.”\nSo this line:\nage &lt;- 18\nmeans:\n\nStore the number 18 in a variable called age.\n\n\n\n\nVariables help us reuse information.\nFor example, instead of typing the same number many times, we can give it a name.\n\nquiz_score &lt;- 92\nhomework_score &lt;- 88\n\nquiz_score\n\n[1] 92\n\nhomework_score\n\n[1] 88\n\n\nNow we can use those variables in a calculation:\n\nfinal_score &lt;- (quiz_score + homework_score) / 2\nfinal_score\n\n[1] 90\n\n\nThis code calculates the average of the quiz score and homework score.\n\n\n\nSometimes you want to clearly print something.\nYou can use print():\n\nprint(final_score)\n\n[1] 90\n\n\nFor simple work, typing the object name also shows the value:\n\nfinal_score\n\n[1] 90\n\n\nBoth are okay.\n\n\n\n\n\n\nTipTip\n\n\n\nIn R, object names should not contain spaces.\nUse this:\nquiz_score &lt;- 92\nNot this:\nquiz score &lt;- 92\n\n\n\n\n\nA comment is a note to yourself or your reader.\nIn R, comments start with #.\nR ignores comments when running code.\n\n# This stores my quiz score\nquiz_score &lt;- 92\n\n# This prints the quiz score\nquiz_score\n\n[1] 92\n\n\nComments are useful because they help explain what your code is doing.\n\n\n\nTo save your script:\n\nClick File.\nClick Save.\nName your file:\n\nfirst_script.R\n\nSave it in your project folder.\n\n\n[Insert Screenshot: Saving an R Script]\nShow the Save button and file name first_script.R.\n\n\n\n\n\n\n\nWarningCommon Mistake\n\n\n\nDo not save your script with a name like:\nUntitled1.R\nUse a clear name, such as:\nfirst_script.R\n\n\n\n\n\n\n\n\n\n\n\nNotePractice\n\n\n\nCreate a new R script and write code that:\n\nStores your favorite number in a variable.\nStores your age in another variable.\nAdds the two numbers together.\nPrints the result.\n\nExample:\nfavorite_number &lt;- 7\nage &lt;- 18\nresult &lt;- favorite_number + age\nprint(result)\n\n\n\n\n\nAnswer these questions in your own words:\n\nWhat is an R script?\nWhy is it useful to save code in a script?\nWhat does &lt;- do?\nWhat is the difference between these two lines?\n\nscore &lt;- 90\nprint(score)\n\n\n\nIn this section, you learned how to:\n\nCreate a new R script.\nUse R for basic arithmetic.\nStore values in variables.\nPrint results.\nAdd comments.\nSave your script.\n\nYou have now written your first R code!",
+    "crumbs": [
+      "2. Creating Your First R Script"
+    ]
+  },
+  {
+    "objectID": "02-first-script.html#what-is-an-r-script",
+    "href": "02-first-script.html#what-is-an-r-script",
+    "title": "2. Creating Your First R Script",
+    "section": "",
+    "text": "An R script is a file where you write R code.\nR script files end with:\n.R\nFor example:\nfirst_script.R\nAn R script is useful because it saves your code. You can run the same code again later without retyping everything.\n\n\n\n\n\n\nTipTip\n\n\n\nUse an R script when you want to save your work.\nUse the Console when you want to quickly test one command.",
+    "crumbs": [
+      "2. Creating Your First R Script"
+    ]
+  },
+  {
+    "objectID": "02-first-script.html#creating-a-new-r-script",
+    "href": "02-first-script.html#creating-a-new-r-script",
+    "title": "2. Creating Your First R Script",
+    "section": "",
+    "text": "In RStudio:\n\nClick File.\nClick New File.\nClick R Script.\n\n\n[Insert Screenshot: Creating a New R Script]\nShow File &gt; New File &gt; R Script.\n\nA blank script should open in the Source Pane.",
+    "crumbs": [
+      "2. Creating Your First R Script"
+    ]
+  },
+  {
+    "objectID": "02-first-script.html#basic-arithmetic",
+    "href": "02-first-script.html#basic-arithmetic",
+    "title": "2. Creating Your First R Script",
+    "section": "",
+    "text": "Before we work with data, let’s try R as a calculator.\nType the following into your script:\n\n2 + 3\n\n[1] 5\n\n10 - 4\n\n[1] 6\n\n5 * 6\n\n[1] 30\n\n20 / 4\n\n[1] 5\n\n\nThese symbols mean:\n\n\n\nSymbol\nMeaning\n\n\n\n\n+\nAdd\n\n\n-\nSubtract\n\n\n*\nMultiply\n\n\n/\nDivide\n\n\n\n\n\n\n\n\n\nNoteTry It Yourself\n\n\n\nChange the numbers and run the code again.\nFor example, try:\n100 / 5\n12 * 3",
+    "crumbs": [
+      "2. Creating Your First R Script"
+    ]
+  },
+  {
+    "objectID": "02-first-script.html#creating-variables",
+    "href": "02-first-script.html#creating-variables",
+    "title": "2. Creating Your First R Script",
+    "section": "",
+    "text": "A variable is a name that stores a value.\nFor example:\n\nage &lt;- 18\nage\n\n[1] 18\n\n\nThe symbol &lt;- means “store this value.”\nSo this line:\nage &lt;- 18\nmeans:\n\nStore the number 18 in a variable called age.",
+    "crumbs": [
+      "2. Creating Your First R Script"
+    ]
+  },
+  {
+    "objectID": "02-first-script.html#why-use-variables",
+    "href": "02-first-script.html#why-use-variables",
+    "title": "2. Creating Your First R Script",
+    "section": "",
+    "text": "Variables help us reuse information.\nFor example, instead of typing the same number many times, we can give it a name.\n\nquiz_score &lt;- 92\nhomework_score &lt;- 88\n\nquiz_score\n\n[1] 92\n\nhomework_score\n\n[1] 88\n\n\nNow we can use those variables in a calculation:\n\nfinal_score &lt;- (quiz_score + homework_score) / 2\nfinal_score\n\n[1] 90\n\n\nThis code calculates the average of the quiz score and homework score.",
+    "crumbs": [
+      "2. Creating Your First R Script"
+    ]
+  },
+  {
+    "objectID": "02-first-script.html#printing-output",
+    "href": "02-first-script.html#printing-output",
+    "title": "2. Creating Your First R Script",
+    "section": "",
+    "text": "Sometimes you want to clearly print something.\nYou can use print():\n\nprint(final_score)\n\n[1] 90\n\n\nFor simple work, typing the object name also shows the value:\n\nfinal_score\n\n[1] 90\n\n\nBoth are okay.\n\n\n\n\n\n\nTipTip\n\n\n\nIn R, object names should not contain spaces.\nUse this:\nquiz_score &lt;- 92\nNot this:\nquiz score &lt;- 92",
+    "crumbs": [
+      "2. Creating Your First R Script"
+    ]
+  },
+  {
+    "objectID": "02-first-script.html#adding-comments",
+    "href": "02-first-script.html#adding-comments",
+    "title": "2. Creating Your First R Script",
+    "section": "",
+    "text": "A comment is a note to yourself or your reader.\nIn R, comments start with #.\nR ignores comments when running code.\n\n# This stores my quiz score\nquiz_score &lt;- 92\n\n# This prints the quiz score\nquiz_score\n\n[1] 92\n\n\nComments are useful because they help explain what your code is doing.",
+    "crumbs": [
+      "2. Creating Your First R Script"
+    ]
+  },
+  {
+    "objectID": "02-first-script.html#saving-your-script",
+    "href": "02-first-script.html#saving-your-script",
+    "title": "2. Creating Your First R Script",
+    "section": "",
+    "text": "To save your script:\n\nClick File.\nClick Save.\nName your file:\n\nfirst_script.R\n\nSave it in your project folder.\n\n\n[Insert Screenshot: Saving an R Script]\nShow the Save button and file name first_script.R.\n\n\n\n\n\n\n\nWarningCommon Mistake\n\n\n\nDo not save your script with a name like:\nUntitled1.R\nUse a clear name, such as:\nfirst_script.R",
+    "crumbs": [
+      "2. Creating Your First R Script"
+    ]
+  },
+  {
+    "objectID": "02-first-script.html#practice-exercise",
+    "href": "02-first-script.html#practice-exercise",
+    "title": "2. Creating Your First R Script",
+    "section": "",
+    "text": "NotePractice\n\n\n\nCreate a new R script and write code that:\n\nStores your favorite number in a variable.\nStores your age in another variable.\nAdds the two numbers together.\nPrints the result.\n\nExample:\nfavorite_number &lt;- 7\nage &lt;- 18\nresult &lt;- favorite_number + age\nprint(result)",
+    "crumbs": [
+      "2. Creating Your First R Script"
+    ]
+  },
+  {
+    "objectID": "02-first-script.html#check-your-understanding",
+    "href": "02-first-script.html#check-your-understanding",
+    "title": "2. Creating Your First R Script",
+    "section": "",
+    "text": "Answer these questions in your own words:\n\nWhat is an R script?\nWhy is it useful to save code in a script?\nWhat does &lt;- do?\nWhat is the difference between these two lines?\n\nscore &lt;- 90\nprint(score)",
+    "crumbs": [
+      "2. Creating Your First R Script"
+    ]
+  },
+  {
+    "objectID": "02-first-script.html#summary",
+    "href": "02-first-script.html#summary",
+    "title": "2. Creating Your First R Script",
+    "section": "",
+    "text": "In this section, you learned how to:\n\nCreate a new R script.\nUse R for basic arithmetic.\nStore values in variables.\nPrint results.\nAdd comments.\nSave your script.\n\nYou have now written your first R code!",
+    "crumbs": [
+      "2. Creating Your First R Script"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome",
+    "section": "",
+    "text": "Welcome to the BU R Onboarding Guide!\nThis guide is for students who are using R and RStudio for the first time. You do not need any previous programming experience. We will go step by step.\nBy the end of this guide, you will be able to:\n\nOpen RStudio.\nUnderstand the main parts of the RStudio screen.\nWrite and run simple R code.\nSave your work in an R script.\nUnderstand the difference between R scripts, R Markdown, and Quarto documents.\nOrganize your project files.\nImport a CSV dataset into R.\nView and summarize your data.\nCreate simple results such as means, tables, and plots.\n\n\n\nR is a programming language used for working with data.\nYou can use R to:\n\nStore data.\nClean data.\nSummarize data.\nMake graphs.\nRun statistical analyses.\nCreate reports.\n\nIn this course, we will use R because it helps us work carefully and clearly with data.\n\n\n\nRStudio is a program that makes R easier to use.\nThink of R as the engine, and RStudio as the dashboard. R does the calculations, while RStudio gives you buttons, panels, files, and tools that make your work easier to manage.\n\n\n\n\n\n\nTipTip\n\n\n\nYou need both R and RStudio installed.\n\nR does the actual computing.\nRStudio gives you a friendly place to write and run R code.\n\n\n\n\nR download - available for Windows/Mac/Linux\nRStudio Desktop download - available for Windows/Mac/Linux\n\nMake sure you install R first, then RStudio. RStudio will ask you to locate your R installation when you open it for the first time.\n\n\n\n\n\n\nWe are using R because it helps you learn how to work with real data.\nInstead of only doing calculations by hand, you will learn how to:\n\nAsk questions about data.\nUse code to answer those questions.\nCheck your work.\nShare your results.\n\nYou do not need to become a professional programmer. The goal is to become comfortable using R as a tool for learning and Statistical data analysis.\n\n\n\nAfter completing this onboarding guide, you should be able to:\n\nIdentify the main parts of RStudio.\nCreate and save an R script.\nRun basic R commands.\nExplain what a Quarto document is.\nSet up a simple project folder.\nDownload and import a CSV file.\nUse basic commands to inspect a dataset.\nCalculate a mean, make a frequency table, and create a simple plot.\n\n\n\n\n\n\n\nNoteBefore You Start\n\n\n\nIt is okay if you make mistakes. Everyone does when learning R.\nA big part of learning R is reading error messages, fixing small problems, and trying again.\n\n\n\n\n\nGo to 1. Getting Familiar with RStudio.",
+    "crumbs": [
+      "Welcome"
+    ]
+  },
+  {
+    "objectID": "index.html#what-is-r",
+    "href": "index.html#what-is-r",
+    "title": "Welcome",
+    "section": "",
+    "text": "R is a programming language used for working with data.\nYou can use R to:\n\nStore data.\nClean data.\nSummarize data.\nMake graphs.\nRun statistical analyses.\nCreate reports.\n\nIn this course, we will use R because it helps us work carefully and clearly with data.",
+    "crumbs": [
+      "Welcome"
+    ]
+  },
+  {
+    "objectID": "index.html#what-is-rstudio",
+    "href": "index.html#what-is-rstudio",
+    "title": "Welcome",
+    "section": "",
+    "text": "RStudio is a program that makes R easier to use.\nThink of R as the engine, and RStudio as the dashboard. R does the calculations, while RStudio gives you buttons, panels, files, and tools that make your work easier to manage.\n\n\n\n\n\n\nTipTip\n\n\n\nYou need both R and RStudio installed.\n\nR does the actual computing.\nRStudio gives you a friendly place to write and run R code.\n\n\n\n\nR download - available for Windows/Mac/Linux\nRStudio Desktop download - available for Windows/Mac/Linux\n\nMake sure you install R first, then RStudio. RStudio will ask you to locate your R installation when you open it for the first time.",
+    "crumbs": [
+      "Welcome"
+    ]
+  },
+  {
+    "objectID": "index.html#why-are-we-using-r-in-this-course",
+    "href": "index.html#why-are-we-using-r-in-this-course",
+    "title": "Welcome",
+    "section": "",
+    "text": "We are using R because it helps you learn how to work with real data.\nInstead of only doing calculations by hand, you will learn how to:\n\nAsk questions about data.\nUse code to answer those questions.\nCheck your work.\nShare your results.\n\nYou do not need to become a professional programmer. The goal is to become comfortable using R as a tool for learning and Statistical data analysis.",
+    "crumbs": [
+      "Welcome"
+    ]
+  },
+  {
+    "objectID": "index.html#learning-objectives",
+    "href": "index.html#learning-objectives",
+    "title": "Welcome",
+    "section": "",
+    "text": "After completing this onboarding guide, you should be able to:\n\nIdentify the main parts of RStudio.\nCreate and save an R script.\nRun basic R commands.\nExplain what a Quarto document is.\nSet up a simple project folder.\nDownload and import a CSV file.\nUse basic commands to inspect a dataset.\nCalculate a mean, make a frequency table, and create a simple plot.\n\n\n\n\n\n\n\nNoteBefore You Start\n\n\n\nIt is okay if you make mistakes. Everyone does when learning R.\nA big part of learning R is reading error messages, fixing small problems, and trying again.",
+    "crumbs": [
+      "Welcome"
+    ]
+  },
+  {
+    "objectID": "index.html#next-step",
+    "href": "index.html#next-step",
+    "title": "Welcome",
+    "section": "",
+    "text": "Go to 1. Getting Familiar with RStudio.",
+    "crumbs": [
+      "Welcome"
+    ]
+  },
+  {
+    "objectID": "01-rstudio.html",
+    "href": "01-rstudio.html",
+    "title": "1. Getting Familiar with RStudio",
+    "section": "",
+    "text": "When you open RStudio, you will see several panels. Each panel has a different job.\nAt first, the screen may look busy. That is normal. You do not need to understand everything right away.\n\n\nRStudio usually has four main areas:\n\nSource Pane\nConsole\nEnvironment Pane\nFiles / Plots / Packages / Help Pane\n\n\n[Insert Screenshot: RStudio Interface]\nAdd a labeled screenshot showing the Source Pane, Console, Environment Pane, and Files/Plots/Packages/Help Pane.\n\n\n\n\nThe Source Pane is where you write and save code.\nYou will usually write your code in a file called an R script. R scripts end with .R.\nExample file name:\nfirst_script.R\nThe Source Pane is useful because it lets you save your work and come back to it later.\n\n\n\n\n\n\nTipTip\n\n\n\nThe Source Pane is like a notebook for your code.\n\n\n\n\n\nThe Console is where R runs commands.\nYou can type code directly into the Console and press Enter.\nFor example:\n2 + 2\nR will show the answer:\n[1] 4\nThe Console is useful for quick tests, but you usually should save important code in an R script.\n\n\n\n\n\n\nWarningCommon Mistake\n\n\n\nDo not only type important work into the Console. If you close RStudio, that code may be hard to find later.\nUse an R script to save your work.\n\n\n\n\n\nThe Environment Pane shows objects you have created.\nAn object is something stored in R, such as a number, a word, or a dataset.\nFor example, if you run:\nscore &lt;- 95\nYou should see score appear in the Environment Pane.\n\n\n\nThis pane has several useful tabs.\n\n\nThe Files tab shows folders and files on your computer.\nYou can use it to find your project folder and open files.\n\n\n\nThe Plots tab shows graphs that you create in R.\n\n\n\nThe Packages tab shows extra R tools that are installed.\nA package is like an add-on for R.\n\n\n\nThe Help tab lets you search for information about R commands.\nFor example, you can search for help about the mean() function.\n\n\n\n\n\n\n\n\n\n\nNotePractice\n\n\n\nOpen RStudio and try the following:\n\nFind the Console.\nType this command:\n\n10 + 5\n\nPress Enter.\nLook for the answer.\nFind the Environment Pane.\nFind the Files tab.\n\n\n\n\n\n\nAnswer these questions in your own words:\n\nWhere do you write and save code?\nWhere does R show the results of commands?\nWhere can you see objects you created?\nWhere do plots appear?\n\n\n\n\nIn this section, you learned that RStudio has several main panes:\n\nThe Source Pane is where you write and save code.\nThe Console is where code runs and results appear.\nThe Environment Pane shows objects you created.\nThe Files / Plots / Packages / Help Pane helps you manage files, view graphs, use packages, and get help.",
+    "crumbs": [
+      "1. Getting Familiar with RStudio"
+    ]
+  },
+  {
+    "objectID": "01-rstudio.html#the-rstudio-interface",
+    "href": "01-rstudio.html#the-rstudio-interface",
+    "title": "1. Getting Familiar with RStudio",
+    "section": "",
+    "text": "RStudio usually has four main areas:\n\nSource Pane\nConsole\nEnvironment Pane\nFiles / Plots / Packages / Help Pane\n\n\n[Insert Screenshot: RStudio Interface]\nAdd a labeled screenshot showing the Source Pane, Console, Environment Pane, and Files/Plots/Packages/Help Pane.",
+    "crumbs": [
+      "1. Getting Familiar with RStudio"
+    ]
+  },
+  {
+    "objectID": "01-rstudio.html#source-pane",
+    "href": "01-rstudio.html#source-pane",
+    "title": "1. Getting Familiar with RStudio",
+    "section": "",
+    "text": "The Source Pane is where you write and save code.\nYou will usually write your code in a file called an R script. R scripts end with .R.\nExample file name:\nfirst_script.R\nThe Source Pane is useful because it lets you save your work and come back to it later.\n\n\n\n\n\n\nTipTip\n\n\n\nThe Source Pane is like a notebook for your code.",
+    "crumbs": [
+      "1. Getting Familiar with RStudio"
+    ]
+  },
+  {
+    "objectID": "01-rstudio.html#console",
+    "href": "01-rstudio.html#console",
+    "title": "1. Getting Familiar with RStudio",
+    "section": "",
+    "text": "The Console is where R runs commands.\nYou can type code directly into the Console and press Enter.\nFor example:\n2 + 2\nR will show the answer:\n[1] 4\nThe Console is useful for quick tests, but you usually should save important code in an R script.\n\n\n\n\n\n\nWarningCommon Mistake\n\n\n\nDo not only type important work into the Console. If you close RStudio, that code may be hard to find later.\nUse an R script to save your work.",
+    "crumbs": [
+      "1. Getting Familiar with RStudio"
+    ]
+  },
+  {
+    "objectID": "01-rstudio.html#environment-pane",
+    "href": "01-rstudio.html#environment-pane",
+    "title": "1. Getting Familiar with RStudio",
+    "section": "",
+    "text": "The Environment Pane shows objects you have created.\nAn object is something stored in R, such as a number, a word, or a dataset.\nFor example, if you run:\nscore &lt;- 95\nYou should see score appear in the Environment Pane.",
+    "crumbs": [
+      "1. Getting Familiar with RStudio"
+    ]
+  },
+  {
+    "objectID": "01-rstudio.html#files-plots-packages-help-pane",
+    "href": "01-rstudio.html#files-plots-packages-help-pane",
+    "title": "1. Getting Familiar with RStudio",
+    "section": "",
+    "text": "This pane has several useful tabs.\n\n\nThe Files tab shows folders and files on your computer.\nYou can use it to find your project folder and open files.\n\n\n\nThe Plots tab shows graphs that you create in R.\n\n\n\nThe Packages tab shows extra R tools that are installed.\nA package is like an add-on for R.\n\n\n\nThe Help tab lets you search for information about R commands.\nFor example, you can search for help about the mean() function.",
+    "crumbs": [
+      "1. Getting Familiar with RStudio"
+    ]
+  },
+  {
+    "objectID": "01-rstudio.html#try-it-yourself",
+    "href": "01-rstudio.html#try-it-yourself",
+    "title": "1. Getting Familiar with RStudio",
+    "section": "",
+    "text": "NotePractice\n\n\n\nOpen RStudio and try the following:\n\nFind the Console.\nType this command:\n\n10 + 5\n\nPress Enter.\nLook for the answer.\nFind the Environment Pane.\nFind the Files tab.",
+    "crumbs": [
+      "1. Getting Familiar with RStudio"
+    ]
+  },
+  {
+    "objectID": "01-rstudio.html#check-your-understanding",
+    "href": "01-rstudio.html#check-your-understanding",
+    "title": "1. Getting Familiar with RStudio",
+    "section": "",
+    "text": "Answer these questions in your own words:\n\nWhere do you write and save code?\nWhere does R show the results of commands?\nWhere can you see objects you created?\nWhere do plots appear?",
+    "crumbs": [
+      "1. Getting Familiar with RStudio"
+    ]
+  },
+  {
+    "objectID": "01-rstudio.html#summary",
+    "href": "01-rstudio.html#summary",
+    "title": "1. Getting Familiar with RStudio",
+    "section": "",
+    "text": "In this section, you learned that RStudio has several main panes:\n\nThe Source Pane is where you write and save code.\nThe Console is where code runs and results appear.\nThe Environment Pane shows objects you created.\nThe Files / Plots / Packages / Help Pane helps you manage files, view graphs, use packages, and get help.",
+    "crumbs": [
+      "1. Getting Familiar with RStudio"
+    ]
+  },
+  {
     "objectID": "03-quarto-rmarkdown.html",
     "href": "03-quarto-rmarkdown.html",
     "title": "3. What is an R Markdown / Quarto Document?",
@@ -574,7 +924,117 @@
     "href": "05-files-folders.html",
     "title": "5. Working with Files and Folders",
     "section": "",
-    "text": "When working with data, file organization matters.\nIf your files are organized, R can find them more easily.\n\n\nThe working directory is the folder where R is currently looking for files.\nIf you ask R to open a file, R first looks in the working directory.\nFor example:\nread.csv(\"mydata.csv\")\nThis tells R:\n\nLook in the current working directory for a file called mydata.csv.\n\n\n\n\nYou can check your working directory with:\n\ngetwd()\n\n[1] \"/Users/ylim2/Documents/01_Work/01_MA213/R_onboarding/r-onboarding-guide\"\n\n\nThis prints the folder where R is currently working.\n\n\n\n\n\n\nTipTip\n\n\n\nIf R cannot find your file, checking getwd() is often the first thing to do.\n\n\n\n\n\nFor this guide, create a folder called:\nr-onboarding-guide\nInside that folder, you might have:\nr-onboarding-guide/\n├── first_script.R\n├── first_report.qmd\n└── mydata.csv\n\n\n\nA project folder keeps related files together.\nThis helps you avoid problems like:\n\nLosing your dataset.\nSaving files in random places.\nNot knowing which version of a file is correct.\nGetting file not found errors.\n\n\n\n\nIn RStudio, use the Files tab to find your project folder.\n\n[Insert Screenshot: Files Pane Showing Project Folder]\nShow the Files tab with the project folder open.\n\n\n\n\nFor a larger project, you may want folders like this:\nmy-project/\n├── data/\n├── scripts/\n├── reports/\n└── images/\nFor now, it is okay to keep things simple.\n\n\n\nGood file names are short and clear.\nGood examples:\nmydata.csv\nfirst_script.R\nlab_report.qmd\nLess helpful examples:\nUntitled1.R\nfinal final data copy.csv\nmy data file.csv\n\n\n\n\n\n\nTipTip\n\n\n\nAvoid spaces in file names.\nUse underscores _ instead:\nmy_data.csv\nlab_report.qmd\n\n\n\n\n\n\n\n\n\n\n\nNotePractice\n\n\n\n\nCreate a folder for this course.\nInside it, create a folder for this assignment or lab.\nSave your R script in that folder.\nIn RStudio, run:\n\ngetwd()\n\nCheck whether R is working in the folder you expected.\n\n\n\n\n\n\n\n\n\n\n\n\nWarningWarning\n\n\n\nAvoid saving course files only in your Downloads folder.\nThe Downloads folder can become messy quickly, and files may be hard to find later.\n\n\n\n\n\nAnswer these questions:\n\nWhat is a working directory?\nWhy is it helpful to keep your script and data file in the same folder?\nWhat command shows the current working directory?\nWhy should you avoid unclear file names?\n\n\n\n\nIn this section, you learned that:\n\nThe working directory is where R looks for files.\ngetwd() shows your current working directory.\nA project folder keeps your work organized.\nClear file names help prevent mistakes. `````",
+    "text": "When working with data, file organization matters.\nIf your files are organized, R can find them more easily.\n\n\nThe working directory is the folder where R is currently looking for files.\nIf you ask R to open a file, R first looks in the working directory.\nFor example:\nread.csv(\"mydata.csv\")\nThis tells R:\n\nLook in the current working directory for a file called mydata.csv.\n\n\n\n\nYou can check your working directory with:\n\ngetwd()\n\n[1] \"/Users/ylim2/Documents/01_Work/01_MA213/R_onboarding/R_onboarding_repo/R_Onboarding\"\n\n\nThis prints the folder where R is currently working.\n\n\n\n\n\n\nTipTip\n\n\n\nIf R cannot find your file, checking getwd() is often the first thing to do.\n\n\n\n\n\nFor this guide, create a folder called:\nr-onboarding-guide\nInside that folder, you might have:\nr-onboarding-guide/\n├── first_script.R\n├── first_report.qmd\n└── mydata.csv\n\n\n\nA project folder keeps related files together.\nThis helps you avoid problems like:\n\nLosing your dataset.\nSaving files in random places.\nNot knowing which version of a file is correct.\nGetting file not found errors.\n\n\n\n\nIn RStudio, use the Files tab to find your project folder.\n\n[Insert Screenshot: Files Pane Showing Project Folder]\nShow the Files tab with the project folder open.\n\n\n\n\nFor a larger project, you may want folders like this:\nmy-project/\n├── data/\n├── scripts/\n├── reports/\n└── images/\nFor now, it is okay to keep things simple.\n\n\n\nGood file names are short and clear.\nGood examples:\nmydata.csv\nfirst_script.R\nlab_report.qmd\nLess helpful examples:\nUntitled1.R\nfinal final data copy.csv\nmy data file.csv\n\n\n\n\n\n\nTipTip\n\n\n\nAvoid spaces in file names.\nUse underscores _ instead:\nmy_data.csv\nlab_report.qmd\n\n\n\n\n\n\n\n\n\n\n\nNotePractice\n\n\n\n\nCreate a folder for this course.\nInside it, create a folder for this assignment or lab.\nSave your R script in that folder.\nIn RStudio, run:\n\ngetwd()\n\nCheck whether R is working in the folder you expected.\n\n\n\n\n\n\n\n\n\n\n\n\nWarningWarning\n\n\n\nAvoid saving course files only in your Downloads folder.\nThe Downloads folder can become messy quickly, and files may be hard to find later.\n\n\n\n\n\nAnswer these questions:\n\nWhat is a working directory?\nWhy is it helpful to keep your script and data file in the same folder?\nWhat command shows the current working directory?\nWhy should you avoid unclear file names?\n\n\n\n\nIn this section, you learned that:\n\nThe working directory is where R looks for files.\ngetwd() shows your current working directory.\nA project folder keeps your work organized.\nClear file names help prevent mistakes. `````",
+    "crumbs": [
+      "5. Working with Files and Folders"
+    ]
+  },
+  {
+    "objectID": "05-files-folders.html#what-is-a-working-directory",
+    "href": "05-files-folders.html#what-is-a-working-directory",
+    "title": "5. Working with Files and Folders",
+    "section": "",
+    "text": "The working directory is the folder where R is currently looking for files.\nIf you ask R to open a file, R first looks in the working directory.\nFor example:\nread.csv(\"mydata.csv\")\nThis tells R:\n\nLook in the current working directory for a file called mydata.csv.",
+    "crumbs": [
+      "5. Working with Files and Folders"
+    ]
+  },
+  {
+    "objectID": "05-files-folders.html#checking-your-working-directory",
+    "href": "05-files-folders.html#checking-your-working-directory",
+    "title": "5. Working with Files and Folders",
+    "section": "",
+    "text": "You can check your working directory with:\n\ngetwd()\n\n[1] \"/Users/ylim2/Documents/01_Work/01_MA213/R_onboarding/R_onboarding_repo/R_Onboarding\"\n\n\nThis prints the folder where R is currently working.\n\n\n\n\n\n\nTipTip\n\n\n\nIf R cannot find your file, checking getwd() is often the first thing to do.",
+    "crumbs": [
+      "5. Working with Files and Folders"
+    ]
+  },
+  {
+    "objectID": "05-files-folders.html#creating-a-project-folder",
+    "href": "05-files-folders.html#creating-a-project-folder",
+    "title": "5. Working with Files and Folders",
+    "section": "",
+    "text": "For this guide, create a folder called:\nr-onboarding-guide\nInside that folder, you might have:\nr-onboarding-guide/\n├── first_script.R\n├── first_report.qmd\n└── mydata.csv",
+    "crumbs": [
+      "5. Working with Files and Folders"
+    ]
+  },
+  {
+    "objectID": "05-files-folders.html#why-use-a-project-folder",
+    "href": "05-files-folders.html#why-use-a-project-folder",
+    "title": "5. Working with Files and Folders",
+    "section": "",
+    "text": "A project folder keeps related files together.\nThis helps you avoid problems like:\n\nLosing your dataset.\nSaving files in random places.\nNot knowing which version of a file is correct.\nGetting file not found errors.",
+    "crumbs": [
+      "5. Working with Files and Folders"
+    ]
+  },
+  {
+    "objectID": "05-files-folders.html#finding-the-project-folder",
+    "href": "05-files-folders.html#finding-the-project-folder",
+    "title": "5. Working with Files and Folders",
+    "section": "",
+    "text": "In RStudio, use the Files tab to find your project folder.\n\n[Insert Screenshot: Files Pane Showing Project Folder]\nShow the Files tab with the project folder open.",
+    "crumbs": [
+      "5. Working with Files and Folders"
+    ]
+  },
+  {
+    "objectID": "05-files-folders.html#recommended-file-organization",
+    "href": "05-files-folders.html#recommended-file-organization",
+    "title": "5. Working with Files and Folders",
+    "section": "",
+    "text": "For a larger project, you may want folders like this:\nmy-project/\n├── data/\n├── scripts/\n├── reports/\n└── images/\nFor now, it is okay to keep things simple.",
+    "crumbs": [
+      "5. Working with Files and Folders"
+    ]
+  },
+  {
+    "objectID": "05-files-folders.html#file-names-matter",
+    "href": "05-files-folders.html#file-names-matter",
+    "title": "5. Working with Files and Folders",
+    "section": "",
+    "text": "Good file names are short and clear.\nGood examples:\nmydata.csv\nfirst_script.R\nlab_report.qmd\nLess helpful examples:\nUntitled1.R\nfinal final data copy.csv\nmy data file.csv\n\n\n\n\n\n\nTipTip\n\n\n\nAvoid spaces in file names.\nUse underscores _ instead:\nmy_data.csv\nlab_report.qmd",
+    "crumbs": [
+      "5. Working with Files and Folders"
+    ]
+  },
+  {
+    "objectID": "05-files-folders.html#try-it-yourself",
+    "href": "05-files-folders.html#try-it-yourself",
+    "title": "5. Working with Files and Folders",
+    "section": "",
+    "text": "NotePractice\n\n\n\n\nCreate a folder for this course.\nInside it, create a folder for this assignment or lab.\nSave your R script in that folder.\nIn RStudio, run:\n\ngetwd()\n\nCheck whether R is working in the folder you expected.",
+    "crumbs": [
+      "5. Working with Files and Folders"
+    ]
+  },
+  {
+    "objectID": "05-files-folders.html#common-mistake",
+    "href": "05-files-folders.html#common-mistake",
+    "title": "5. Working with Files and Folders",
+    "section": "",
+    "text": "WarningWarning\n\n\n\nAvoid saving course files only in your Downloads folder.\nThe Downloads folder can become messy quickly, and files may be hard to find later.",
+    "crumbs": [
+      "5. Working with Files and Folders"
+    ]
+  },
+  {
+    "objectID": "05-files-folders.html#check-your-understanding",
+    "href": "05-files-folders.html#check-your-understanding",
+    "title": "5. Working with Files and Folders",
+    "section": "",
+    "text": "Answer these questions:\n\nWhat is a working directory?\nWhy is it helpful to keep your script and data file in the same folder?\nWhat command shows the current working directory?\nWhy should you avoid unclear file names?",
+    "crumbs": [
+      "5. Working with Files and Folders"
+    ]
+  },
+  {
+    "objectID": "05-files-folders.html#summary",
+    "href": "05-files-folders.html#summary",
+    "title": "5. Working with Files and Folders",
+    "section": "",
+    "text": "In this section, you learned that:\n\nThe working directory is where R looks for files.\ngetwd() shows your current working directory.\nA project folder keeps your work organized.\nClear file names help prevent mistakes. `````",
     "crumbs": [
       "5. Working with Files and Folders"
     ]
@@ -690,341 +1150,11 @@
     ]
   },
   {
-    "objectID": "10-cheatsheet.html",
-    "href": "10-cheatsheet.html",
-    "title": "Quick Reference Cheat Sheet",
-    "section": "",
-    "text": "This page summarizes the most important commands and tips from the guide.\n\n\n\n\n\nAction\nWindows\nMac\n\n\n\n\nRun current line\nCtrl + Enter\nCmd + Enter\n\n\nSave file\nCtrl + S\nCmd + S\n\n\nFind text\nCtrl + F\nCmd + F\n\n\nComment/uncomment code\nCtrl + Shift + C\nCmd + Shift + C\n\n\n\n\n\n\n\n\n\nPane\nPurpose\n\n\n\n\nSource\nWrite and save code\n\n\nConsole\nRun commands and see output\n\n\nEnvironment\nSee objects you created\n\n\nFiles\nFind files and folders\n\n\nPlots\nView graphs\n\n\nPackages\nManage add-on tools\n\n\nHelp\nSearch for help\n\n\n\n\n\n\n\n\n\nGoal\nCommand\n\n\n\n\nAdd numbers\n2 + 3\n\n\nStore a value\nx &lt;- 10\n\n\nPrint a value\nprint(x)\n\n\nCheck working directory\ngetwd()\n\n\nCheck if a file exists\nfile.exists(\"mydata.csv\")\n\n\nImport CSV\ndata &lt;- read.csv(\"mydata.csv\")\n\n\nView first rows\nhead(data)\n\n\nView structure\nstr(data)\n\n\nSummarize data\nsummary(data)\n\n\nView column names\nnames(data)\n\n\nCalculate a mean\nmean(data$quiz_score)\n\n\nMake a frequency table\ntable(data$major)\n\n\nMake a plot\nplot(data$study_hours, data$quiz_score)\n\n\n\n\n\n\n\nKeep your script and data file in the same project folder.\nUse clear file names.\nAvoid spaces in file names.\nUse underscores _ instead of spaces.\nAvoid saving important files only in Downloads.\nCheck your working directory with getwd().\nCheck whether R can find your file with file.exists().\n\n\n\n\nGood:\nfirst_script.R\nmydata.csv\nlab_report.qmd\nAvoid:\nUntitled1.R\nmy data final FINAL.csv\nlab report new version 2.qmd\n\n\n\nUse:\ndata &lt;- read.csv(\"mydata.csv\")\nThen inspect it:\nhead(data)\nstr(data)\nsummary(data)\nnames(data)\n\n\n\nMean:\nmean(data$quiz_score)\nFrequency table:\ntable(data$major)\nScatterplot:\nplot(\n  data$study_hours,\n  data$quiz_score,\n  main = \"Study Hours and Quiz Score\",\n  xlab = \"Study Hours\",\n  ylab = \"Quiz Score\"\n)\nHistogram:\nhist(\n  data$quiz_score,\n  main = \"Distribution of Quiz Scores\",\n  xlab = \"Quiz Score\"\n)\n\n\n\n\n\n\n\n\n\n\nProblem\nPossible Fix\n\n\n\n\nFile not found\nCheck getwd() and file.exists(\"mydata.csv\")\n\n\nObject not found\nRun the code that creates the object\n\n\nTyping mistake\nCheck spelling and capitalization\n\n\nMissing quote\nPut file names in quotation marks\n\n\nMissing parenthesis\nMake sure every ( has a matching )\n\n\nRendering error\nRun the document from top to bottom and check earlier code\n\n\nPackage problem\nCheck spelling, install the package, then load it with library()\n\n\n\n\n\n\nIf R cannot find your CSV file, try this:\ngetwd()\nfile.exists(\"mydata.csv\")\nIf file.exists(\"mydata.csv\") gives:\n[1] FALSE\nthen R cannot find the file in the current folder.\nCheck that:\n\nThe file is saved in your project folder.\nThe file name is exactly mydata.csv.\nThe file is not accidentally named mydata.csv.txt.\nYou are working in the correct folder.\n\n\n\n\nGood object names:\nquiz_score &lt;- 90\nstudy_hours &lt;- 6\nmy_data &lt;- read.csv(\"mydata.csv\")\nAvoid object names with spaces:\nquiz score &lt;- 90\nstudy hours &lt;- 6\nmy data &lt;- read.csv(\"mydata.csv\")\n\n\n\n\nSave your script often.\nRun code one small piece at a time.\nRead error messages slowly.\nCheck spelling carefully.\nKeep your data and script in the same folder.\nWrite short comments to explain your code.\nExplain your results in sentences.\n\n\n\n\nHere is a simple workflow from start to finish:\n# Check where R is looking for files\ngetwd()\n\n# Check whether the data file exists\nfile.exists(\"mydata.csv\")\n\n# Import the data\ndata &lt;- read.csv(\"mydata.csv\")\n\n# Look at the data\nhead(data)\nstr(data)\nsummary(data)\n\n# Calculate results\nmean(data$quiz_score)\ntable(data$major)\n\n# Make a plot\nplot(\n  data$study_hours,\n  data$quiz_score,\n  main = \"Study Hours and Quiz Score\",\n  xlab = \"Study Hours\",\n  ylab = \"Quiz Score\",\n  pch = 19,\n  col = \"steelblue\"\n)\n\n\n\nYou now know how to complete a first basic R workflow:\n\nOpen RStudio.\nCreate a script.\nWrite code.\nSave your work.\nOrganize your files.\nImport a CSV dataset.\nInspect the data.\nCalculate simple results.\nExplain what the results mean.\n\nThat is a successful first R workflow!",
-    "crumbs": [
-      "Quick Reference Cheat Sheet"
-    ]
-  },
-  {
-    "objectID": "01-rstudio.html",
-    "href": "01-rstudio.html",
-    "title": "1. Getting Familiar with RStudio",
-    "section": "",
-    "text": "When you open RStudio, you will see several panels. Each panel has a different job.\nAt first, the screen may look busy. That is normal. You do not need to understand everything right away.\n\n\nRStudio usually has four main areas:\n\nSource Pane\nConsole\nEnvironment Pane\nFiles / Plots / Packages / Help Pane\n\n\n[Insert Screenshot: RStudio Interface]\nAdd a labeled screenshot showing the Source Pane, Console, Environment Pane, and Files/Plots/Packages/Help Pane.\n\n\n\n\nThe Source Pane is where you write and save code.\nYou will usually write your code in a file called an R script. R scripts end with .R.\nExample file name:\nfirst_script.R\nThe Source Pane is useful because it lets you save your work and come back to it later.\n\n\n\n\n\n\nTipTip\n\n\n\nThe Source Pane is like a notebook for your code.\n\n\n\n\n\nThe Console is where R runs commands.\nYou can type code directly into the Console and press Enter.\nFor example:\n2 + 2\nR will show the answer:\n[1] 4\nThe Console is useful for quick tests, but you usually should save important code in an R script.\n\n\n\n\n\n\nWarningCommon Mistake\n\n\n\nDo not only type important work into the Console. If you close RStudio, that code may be hard to find later.\nUse an R script to save your work.\n\n\n\n\n\nThe Environment Pane shows objects you have created.\nAn object is something stored in R, such as a number, a word, or a dataset.\nFor example, if you run:\nscore &lt;- 95\nYou should see score appear in the Environment Pane.\n\n\n\nThis pane has several useful tabs.\n\n\nThe Files tab shows folders and files on your computer.\nYou can use it to find your project folder and open files.\n\n\n\nThe Plots tab shows graphs that you create in R.\n\n\n\nThe Packages tab shows extra R tools that are installed.\nA package is like an add-on for R.\n\n\n\nThe Help tab lets you search for information about R commands.\nFor example, you can search for help about the mean() function.\n\n\n\n\n\n\n\n\n\n\nNotePractice\n\n\n\nOpen RStudio and try the following:\n\nFind the Console.\nType this command:\n\n10 + 5\n\nPress Enter.\nLook for the answer.\nFind the Environment Pane.\nFind the Files tab.\n\n\n\n\n\n\nAnswer these questions in your own words:\n\nWhere do you write and save code?\nWhere does R show the results of commands?\nWhere can you see objects you created?\nWhere do plots appear?\n\n\n\n\nIn this section, you learned that RStudio has several main panes:\n\nThe Source Pane is where you write and save code.\nThe Console is where code runs and results appear.\nThe Environment Pane shows objects you created.\nThe Files / Plots / Packages / Help Pane helps you manage files, view graphs, use packages, and get help.",
-    "crumbs": [
-      "1. Getting Familiar with RStudio"
-    ]
-  },
-  {
-    "objectID": "01-rstudio.html#the-rstudio-interface",
-    "href": "01-rstudio.html#the-rstudio-interface",
-    "title": "1. Getting Familiar with RStudio",
-    "section": "",
-    "text": "RStudio usually has four main areas:\n\nSource Pane\nConsole\nEnvironment Pane\nFiles / Plots / Packages / Help Pane\n\n\n[Insert Screenshot: RStudio Interface]\nAdd a labeled screenshot showing the Source Pane, Console, Environment Pane, and Files/Plots/Packages/Help Pane.",
-    "crumbs": [
-      "1. Getting Familiar with RStudio"
-    ]
-  },
-  {
-    "objectID": "01-rstudio.html#source-pane",
-    "href": "01-rstudio.html#source-pane",
-    "title": "1. Getting Familiar with RStudio",
-    "section": "",
-    "text": "The Source Pane is where you write and save code.\nYou will usually write your code in a file called an R script. R scripts end with .R.\nExample file name:\nfirst_script.R\nThe Source Pane is useful because it lets you save your work and come back to it later.\n\n\n\n\n\n\nTipTip\n\n\n\nThe Source Pane is like a notebook for your code.",
-    "crumbs": [
-      "1. Getting Familiar with RStudio"
-    ]
-  },
-  {
-    "objectID": "01-rstudio.html#console",
-    "href": "01-rstudio.html#console",
-    "title": "1. Getting Familiar with RStudio",
-    "section": "",
-    "text": "The Console is where R runs commands.\nYou can type code directly into the Console and press Enter.\nFor example:\n2 + 2\nR will show the answer:\n[1] 4\nThe Console is useful for quick tests, but you usually should save important code in an R script.\n\n\n\n\n\n\nWarningCommon Mistake\n\n\n\nDo not only type important work into the Console. If you close RStudio, that code may be hard to find later.\nUse an R script to save your work.",
-    "crumbs": [
-      "1. Getting Familiar with RStudio"
-    ]
-  },
-  {
-    "objectID": "01-rstudio.html#environment-pane",
-    "href": "01-rstudio.html#environment-pane",
-    "title": "1. Getting Familiar with RStudio",
-    "section": "",
-    "text": "The Environment Pane shows objects you have created.\nAn object is something stored in R, such as a number, a word, or a dataset.\nFor example, if you run:\nscore &lt;- 95\nYou should see score appear in the Environment Pane.",
-    "crumbs": [
-      "1. Getting Familiar with RStudio"
-    ]
-  },
-  {
-    "objectID": "01-rstudio.html#files-plots-packages-help-pane",
-    "href": "01-rstudio.html#files-plots-packages-help-pane",
-    "title": "1. Getting Familiar with RStudio",
-    "section": "",
-    "text": "This pane has several useful tabs.\n\n\nThe Files tab shows folders and files on your computer.\nYou can use it to find your project folder and open files.\n\n\n\nThe Plots tab shows graphs that you create in R.\n\n\n\nThe Packages tab shows extra R tools that are installed.\nA package is like an add-on for R.\n\n\n\nThe Help tab lets you search for information about R commands.\nFor example, you can search for help about the mean() function.",
-    "crumbs": [
-      "1. Getting Familiar with RStudio"
-    ]
-  },
-  {
-    "objectID": "01-rstudio.html#try-it-yourself",
-    "href": "01-rstudio.html#try-it-yourself",
-    "title": "1. Getting Familiar with RStudio",
-    "section": "",
-    "text": "NotePractice\n\n\n\nOpen RStudio and try the following:\n\nFind the Console.\nType this command:\n\n10 + 5\n\nPress Enter.\nLook for the answer.\nFind the Environment Pane.\nFind the Files tab.",
-    "crumbs": [
-      "1. Getting Familiar with RStudio"
-    ]
-  },
-  {
-    "objectID": "01-rstudio.html#check-your-understanding",
-    "href": "01-rstudio.html#check-your-understanding",
-    "title": "1. Getting Familiar with RStudio",
-    "section": "",
-    "text": "Answer these questions in your own words:\n\nWhere do you write and save code?\nWhere does R show the results of commands?\nWhere can you see objects you created?\nWhere do plots appear?",
-    "crumbs": [
-      "1. Getting Familiar with RStudio"
-    ]
-  },
-  {
-    "objectID": "01-rstudio.html#summary",
-    "href": "01-rstudio.html#summary",
-    "title": "1. Getting Familiar with RStudio",
-    "section": "",
-    "text": "In this section, you learned that RStudio has several main panes:\n\nThe Source Pane is where you write and save code.\nThe Console is where code runs and results appear.\nThe Environment Pane shows objects you created.\nThe Files / Plots / Packages / Help Pane helps you manage files, view graphs, use packages, and get help.",
-    "crumbs": [
-      "1. Getting Familiar with RStudio"
-    ]
-  },
-  {
-    "objectID": "02-first-script.html",
-    "href": "02-first-script.html",
-    "title": "2. Creating Your First R Script",
-    "section": "",
-    "text": "In this section, you will create your first R script.\n\n\nAn R script is a file where you write R code.\nR script files end with:\n.R\nFor example:\nfirst_script.R\nAn R script is useful because it saves your code. You can run the same code again later without retyping everything.\n\n\n\n\n\n\nTipTip\n\n\n\nUse an R script when you want to save your work.\nUse the Console when you want to quickly test one command.\n\n\n\n\n\nIn RStudio:\n\nClick File.\nClick New File.\nClick R Script.\n\n\n[Insert Screenshot: Creating a New R Script]\nShow File &gt; New File &gt; R Script.\n\nA blank script should open in the Source Pane.\n\n\n\nBefore we work with data, let’s try R as a calculator.\nType the following into your script:\n\n2 + 3\n\n[1] 5\n\n10 - 4\n\n[1] 6\n\n5 * 6\n\n[1] 30\n\n20 / 4\n\n[1] 5\n\n\nThese symbols mean:\n\n\n\nSymbol\nMeaning\n\n\n\n\n+\nAdd\n\n\n-\nSubtract\n\n\n*\nMultiply\n\n\n/\nDivide\n\n\n\n\n\n\n\n\n\nNoteTry It Yourself\n\n\n\nChange the numbers and run the code again.\nFor example, try:\n100 / 5\n12 * 3\n\n\n\n\n\nA variable is a name that stores a value.\nFor example:\n\nage &lt;- 18\nage\n\n[1] 18\n\n\nThe symbol &lt;- means “store this value.”\nSo this line:\nage &lt;- 18\nmeans:\n\nStore the number 18 in a variable called age.\n\n\n\n\nVariables help us reuse information.\nFor example, instead of typing the same number many times, we can give it a name.\n\nquiz_score &lt;- 92\nhomework_score &lt;- 88\n\nquiz_score\n\n[1] 92\n\nhomework_score\n\n[1] 88\n\n\nNow we can use those variables in a calculation:\n\nfinal_score &lt;- (quiz_score + homework_score) / 2\nfinal_score\n\n[1] 90\n\n\nThis code calculates the average of the quiz score and homework score.\n\n\n\nSometimes you want to clearly print something.\nYou can use print():\n\nprint(final_score)\n\n[1] 90\n\n\nFor simple work, typing the object name also shows the value:\n\nfinal_score\n\n[1] 90\n\n\nBoth are okay.\n\n\n\n\n\n\nTipTip\n\n\n\nIn R, object names should not contain spaces.\nUse this:\nquiz_score &lt;- 92\nNot this:\nquiz score &lt;- 92\n\n\n\n\n\nA comment is a note to yourself or your reader.\nIn R, comments start with #.\nR ignores comments when running code.\n\n# This stores my quiz score\nquiz_score &lt;- 92\n\n# This prints the quiz score\nquiz_score\n\n[1] 92\n\n\nComments are useful because they help explain what your code is doing.\n\n\n\nTo save your script:\n\nClick File.\nClick Save.\nName your file:\n\nfirst_script.R\n\nSave it in your project folder.\n\n\n[Insert Screenshot: Saving an R Script]\nShow the Save button and file name first_script.R.\n\n\n\n\n\n\n\nWarningCommon Mistake\n\n\n\nDo not save your script with a name like:\nUntitled1.R\nUse a clear name, such as:\nfirst_script.R\n\n\n\n\n\n\n\n\n\n\n\nNotePractice\n\n\n\nCreate a new R script and write code that:\n\nStores your favorite number in a variable.\nStores your age in another variable.\nAdds the two numbers together.\nPrints the result.\n\nExample:\nfavorite_number &lt;- 7\nage &lt;- 18\nresult &lt;- favorite_number + age\nprint(result)\n\n\n\n\n\nAnswer these questions in your own words:\n\nWhat is an R script?\nWhy is it useful to save code in a script?\nWhat does &lt;- do?\nWhat is the difference between these two lines?\n\nscore &lt;- 90\nprint(score)\n\n\n\nIn this section, you learned how to:\n\nCreate a new R script.\nUse R for basic arithmetic.\nStore values in variables.\nPrint results.\nAdd comments.\nSave your script.\n\nYou have now written your first R code!",
-    "crumbs": [
-      "2. Creating Your First R Script"
-    ]
-  },
-  {
-    "objectID": "02-first-script.html#what-is-an-r-script",
-    "href": "02-first-script.html#what-is-an-r-script",
-    "title": "2. Creating Your First R Script",
-    "section": "",
-    "text": "An R script is a file where you write R code.\nR script files end with:\n.R\nFor example:\nfirst_script.R\nAn R script is useful because it saves your code. You can run the same code again later without retyping everything.\n\n\n\n\n\n\nTipTip\n\n\n\nUse an R script when you want to save your work.\nUse the Console when you want to quickly test one command.",
-    "crumbs": [
-      "2. Creating Your First R Script"
-    ]
-  },
-  {
-    "objectID": "02-first-script.html#creating-a-new-r-script",
-    "href": "02-first-script.html#creating-a-new-r-script",
-    "title": "2. Creating Your First R Script",
-    "section": "",
-    "text": "In RStudio:\n\nClick File.\nClick New File.\nClick R Script.\n\n\n[Insert Screenshot: Creating a New R Script]\nShow File &gt; New File &gt; R Script.\n\nA blank script should open in the Source Pane.",
-    "crumbs": [
-      "2. Creating Your First R Script"
-    ]
-  },
-  {
-    "objectID": "02-first-script.html#basic-arithmetic",
-    "href": "02-first-script.html#basic-arithmetic",
-    "title": "2. Creating Your First R Script",
-    "section": "",
-    "text": "Before we work with data, let’s try R as a calculator.\nType the following into your script:\n\n2 + 3\n\n[1] 5\n\n10 - 4\n\n[1] 6\n\n5 * 6\n\n[1] 30\n\n20 / 4\n\n[1] 5\n\n\nThese symbols mean:\n\n\n\nSymbol\nMeaning\n\n\n\n\n+\nAdd\n\n\n-\nSubtract\n\n\n*\nMultiply\n\n\n/\nDivide\n\n\n\n\n\n\n\n\n\nNoteTry It Yourself\n\n\n\nChange the numbers and run the code again.\nFor example, try:\n100 / 5\n12 * 3",
-    "crumbs": [
-      "2. Creating Your First R Script"
-    ]
-  },
-  {
-    "objectID": "02-first-script.html#creating-variables",
-    "href": "02-first-script.html#creating-variables",
-    "title": "2. Creating Your First R Script",
-    "section": "",
-    "text": "A variable is a name that stores a value.\nFor example:\n\nage &lt;- 18\nage\n\n[1] 18\n\n\nThe symbol &lt;- means “store this value.”\nSo this line:\nage &lt;- 18\nmeans:\n\nStore the number 18 in a variable called age.",
-    "crumbs": [
-      "2. Creating Your First R Script"
-    ]
-  },
-  {
-    "objectID": "02-first-script.html#why-use-variables",
-    "href": "02-first-script.html#why-use-variables",
-    "title": "2. Creating Your First R Script",
-    "section": "",
-    "text": "Variables help us reuse information.\nFor example, instead of typing the same number many times, we can give it a name.\n\nquiz_score &lt;- 92\nhomework_score &lt;- 88\n\nquiz_score\n\n[1] 92\n\nhomework_score\n\n[1] 88\n\n\nNow we can use those variables in a calculation:\n\nfinal_score &lt;- (quiz_score + homework_score) / 2\nfinal_score\n\n[1] 90\n\n\nThis code calculates the average of the quiz score and homework score.",
-    "crumbs": [
-      "2. Creating Your First R Script"
-    ]
-  },
-  {
-    "objectID": "02-first-script.html#printing-output",
-    "href": "02-first-script.html#printing-output",
-    "title": "2. Creating Your First R Script",
-    "section": "",
-    "text": "Sometimes you want to clearly print something.\nYou can use print():\n\nprint(final_score)\n\n[1] 90\n\n\nFor simple work, typing the object name also shows the value:\n\nfinal_score\n\n[1] 90\n\n\nBoth are okay.\n\n\n\n\n\n\nTipTip\n\n\n\nIn R, object names should not contain spaces.\nUse this:\nquiz_score &lt;- 92\nNot this:\nquiz score &lt;- 92",
-    "crumbs": [
-      "2. Creating Your First R Script"
-    ]
-  },
-  {
-    "objectID": "02-first-script.html#adding-comments",
-    "href": "02-first-script.html#adding-comments",
-    "title": "2. Creating Your First R Script",
-    "section": "",
-    "text": "A comment is a note to yourself or your reader.\nIn R, comments start with #.\nR ignores comments when running code.\n\n# This stores my quiz score\nquiz_score &lt;- 92\n\n# This prints the quiz score\nquiz_score\n\n[1] 92\n\n\nComments are useful because they help explain what your code is doing.",
-    "crumbs": [
-      "2. Creating Your First R Script"
-    ]
-  },
-  {
-    "objectID": "02-first-script.html#saving-your-script",
-    "href": "02-first-script.html#saving-your-script",
-    "title": "2. Creating Your First R Script",
-    "section": "",
-    "text": "To save your script:\n\nClick File.\nClick Save.\nName your file:\n\nfirst_script.R\n\nSave it in your project folder.\n\n\n[Insert Screenshot: Saving an R Script]\nShow the Save button and file name first_script.R.\n\n\n\n\n\n\n\nWarningCommon Mistake\n\n\n\nDo not save your script with a name like:\nUntitled1.R\nUse a clear name, such as:\nfirst_script.R",
-    "crumbs": [
-      "2. Creating Your First R Script"
-    ]
-  },
-  {
-    "objectID": "02-first-script.html#practice-exercise",
-    "href": "02-first-script.html#practice-exercise",
-    "title": "2. Creating Your First R Script",
-    "section": "",
-    "text": "NotePractice\n\n\n\nCreate a new R script and write code that:\n\nStores your favorite number in a variable.\nStores your age in another variable.\nAdds the two numbers together.\nPrints the result.\n\nExample:\nfavorite_number &lt;- 7\nage &lt;- 18\nresult &lt;- favorite_number + age\nprint(result)",
-    "crumbs": [
-      "2. Creating Your First R Script"
-    ]
-  },
-  {
-    "objectID": "02-first-script.html#check-your-understanding",
-    "href": "02-first-script.html#check-your-understanding",
-    "title": "2. Creating Your First R Script",
-    "section": "",
-    "text": "Answer these questions in your own words:\n\nWhat is an R script?\nWhy is it useful to save code in a script?\nWhat does &lt;- do?\nWhat is the difference between these two lines?\n\nscore &lt;- 90\nprint(score)",
-    "crumbs": [
-      "2. Creating Your First R Script"
-    ]
-  },
-  {
-    "objectID": "02-first-script.html#summary",
-    "href": "02-first-script.html#summary",
-    "title": "2. Creating Your First R Script",
-    "section": "",
-    "text": "In this section, you learned how to:\n\nCreate a new R script.\nUse R for basic arithmetic.\nStore values in variables.\nPrint results.\nAdd comments.\nSave your script.\n\nYou have now written your first R code!",
-    "crumbs": [
-      "2. Creating Your First R Script"
-    ]
-  },
-  {
-    "objectID": "05-files-folders.html#what-is-a-working-directory",
-    "href": "05-files-folders.html#what-is-a-working-directory",
-    "title": "5. Working with Files and Folders",
-    "section": "",
-    "text": "The working directory is the folder where R is currently looking for files.\nIf you ask R to open a file, R first looks in the working directory.\nFor example:\nread.csv(\"mydata.csv\")\nThis tells R:\n\nLook in the current working directory for a file called mydata.csv.",
-    "crumbs": [
-      "5. Working with Files and Folders"
-    ]
-  },
-  {
-    "objectID": "05-files-folders.html#checking-your-working-directory",
-    "href": "05-files-folders.html#checking-your-working-directory",
-    "title": "5. Working with Files and Folders",
-    "section": "",
-    "text": "You can check your working directory with:\n\ngetwd()\n\n[1] \"/Users/ylim2/Documents/01_Work/01_MA213/R_onboarding/r-onboarding-guide\"\n\n\nThis prints the folder where R is currently working.\n\n\n\n\n\n\nTipTip\n\n\n\nIf R cannot find your file, checking getwd() is often the first thing to do.",
-    "crumbs": [
-      "5. Working with Files and Folders"
-    ]
-  },
-  {
-    "objectID": "05-files-folders.html#creating-a-project-folder",
-    "href": "05-files-folders.html#creating-a-project-folder",
-    "title": "5. Working with Files and Folders",
-    "section": "",
-    "text": "For this guide, create a folder called:\nr-onboarding-guide\nInside that folder, you might have:\nr-onboarding-guide/\n├── first_script.R\n├── first_report.qmd\n└── mydata.csv",
-    "crumbs": [
-      "5. Working with Files and Folders"
-    ]
-  },
-  {
-    "objectID": "05-files-folders.html#why-use-a-project-folder",
-    "href": "05-files-folders.html#why-use-a-project-folder",
-    "title": "5. Working with Files and Folders",
-    "section": "",
-    "text": "A project folder keeps related files together.\nThis helps you avoid problems like:\n\nLosing your dataset.\nSaving files in random places.\nNot knowing which version of a file is correct.\nGetting file not found errors.",
-    "crumbs": [
-      "5. Working with Files and Folders"
-    ]
-  },
-  {
-    "objectID": "05-files-folders.html#finding-the-project-folder",
-    "href": "05-files-folders.html#finding-the-project-folder",
-    "title": "5. Working with Files and Folders",
-    "section": "",
-    "text": "In RStudio, use the Files tab to find your project folder.\n\n[Insert Screenshot: Files Pane Showing Project Folder]\nShow the Files tab with the project folder open.",
-    "crumbs": [
-      "5. Working with Files and Folders"
-    ]
-  },
-  {
-    "objectID": "05-files-folders.html#recommended-file-organization",
-    "href": "05-files-folders.html#recommended-file-organization",
-    "title": "5. Working with Files and Folders",
-    "section": "",
-    "text": "For a larger project, you may want folders like this:\nmy-project/\n├── data/\n├── scripts/\n├── reports/\n└── images/\nFor now, it is okay to keep things simple.",
-    "crumbs": [
-      "5. Working with Files and Folders"
-    ]
-  },
-  {
-    "objectID": "05-files-folders.html#file-names-matter",
-    "href": "05-files-folders.html#file-names-matter",
-    "title": "5. Working with Files and Folders",
-    "section": "",
-    "text": "Good file names are short and clear.\nGood examples:\nmydata.csv\nfirst_script.R\nlab_report.qmd\nLess helpful examples:\nUntitled1.R\nfinal final data copy.csv\nmy data file.csv\n\n\n\n\n\n\nTipTip\n\n\n\nAvoid spaces in file names.\nUse underscores _ instead:\nmy_data.csv\nlab_report.qmd",
-    "crumbs": [
-      "5. Working with Files and Folders"
-    ]
-  },
-  {
-    "objectID": "05-files-folders.html#try-it-yourself",
-    "href": "05-files-folders.html#try-it-yourself",
-    "title": "5. Working with Files and Folders",
-    "section": "",
-    "text": "NotePractice\n\n\n\n\nCreate a folder for this course.\nInside it, create a folder for this assignment or lab.\nSave your R script in that folder.\nIn RStudio, run:\n\ngetwd()\n\nCheck whether R is working in the folder you expected.",
-    "crumbs": [
-      "5. Working with Files and Folders"
-    ]
-  },
-  {
-    "objectID": "05-files-folders.html#common-mistake",
-    "href": "05-files-folders.html#common-mistake",
-    "title": "5. Working with Files and Folders",
-    "section": "",
-    "text": "WarningWarning\n\n\n\nAvoid saving course files only in your Downloads folder.\nThe Downloads folder can become messy quickly, and files may be hard to find later.",
-    "crumbs": [
-      "5. Working with Files and Folders"
-    ]
-  },
-  {
-    "objectID": "05-files-folders.html#check-your-understanding",
-    "href": "05-files-folders.html#check-your-understanding",
-    "title": "5. Working with Files and Folders",
-    "section": "",
-    "text": "Answer these questions:\n\nWhat is a working directory?\nWhy is it helpful to keep your script and data file in the same folder?\nWhat command shows the current working directory?\nWhy should you avoid unclear file names?",
-    "crumbs": [
-      "5. Working with Files and Folders"
-    ]
-  },
-  {
-    "objectID": "05-files-folders.html#summary",
-    "href": "05-files-folders.html#summary",
-    "title": "5. Working with Files and Folders",
-    "section": "",
-    "text": "In this section, you learned that:\n\nThe working directory is where R looks for files.\ngetwd() shows your current working directory.\nA project folder keeps your work organized.\nClear file names help prevent mistakes. `````",
-    "crumbs": [
-      "5. Working with Files and Folders"
-    ]
-  },
-  {
     "objectID": "09-common-problems.html",
     "href": "09-common-problems.html",
     "title": "Common Problems and Solutions",
     "section": "",
-    "text": "Everyone gets errors in R. Errors are normal.\nThe important skill is learning how to read the message and try a fix.\n\n\n\n\nError in file(file, \"rt\") : cannot open the connection\nor:\nNo such file or directory\n\n\n\nR cannot find your file.\n\n\n\nRun:\n\ngetwd()\n\n[1] \"/Users/ylim2/Documents/01_Work/01_MA213/R_onboarding/r-onboarding-guide\"\n\n\nThen check whether mydata.csv is inside that folder.\nAlso run:\n\nfile.exists(\"mydata.csv\")\n\n[1] TRUE\n\n\nIf the result is FALSE, R cannot find the file.\n\n\n\n\nMove mydata.csv into your project folder.\nCheck the spelling of the file name.\nMake sure the file ends in .csv.\nMake sure you are working in the correct folder.\n\n\n\n\n\n\n\nWarningCommon Mistake\n\n\n\nmydata.csv and mydata (1).csv are different file names.\n\n\n\n\n\n\nSometimes your instructor may ask you to install a package.\nExample:\ninstall.packages(\"ggplot2\")\n\n\n\nInternet connection problems.\nTyping the package name incorrectly.\nR asks you to restart.\nYou do not have permission to install software on the computer.\n\n\n\n\n\nCheck your internet connection.\nMake sure the package name is inside quotation marks.\nRestart RStudio and try again.\nAsk your instructor or campus IT for help if you are on a lab computer.\n\n\n\n\n\n\n\nTipTip\n\n\n\nYou only need to install a package once on your computer.\nBut you need to load it with library() each time you start a new R session.\n\n\n\n\n\n\nR is very picky about spelling.\nThese are all different to R:\nquiz_score\nQuiz_score\nquizscore\nquiz.score\n\n\n\n\n\n\n\n\n\n\nMistake\nExample\nFix\n\n\n\n\nMissing quote\nread.csv(mydata.csv)\nread.csv(\"mydata.csv\")\n\n\nMisspelled object\nquz_score\nquiz_score\n\n\nMissing parenthesis\nmean(data$quiz_score\nmean(data$quiz_score)\n\n\nWrong capitalization\nRead.csv()\nread.csv()\n\n\n\n\n\n\n\nIf R is looking in the wrong folder, it may not find your files.\nCheck the working directory with:\n\ngetwd()\n\n[1] \"/Users/ylim2/Documents/01_Work/01_MA213/R_onboarding/r-onboarding-guide\"\n\n\nIn RStudio, using an RStudio Project can help keep your working directory organized.\n\n\n\n\n\n\nTipTip\n\n\n\nFor each assignment or project, keep your script and data file in the same folder.\n\n\n\n\n\nWhen rendering a Quarto document, R runs the code from top to bottom.\nA document may fail to render if:\n\nA file is missing.\nA package is not loaded.\nAn object is used before it is created.\nThere is a typing mistake in a code chunk.\n\n\n\nThis can fail:\nmean(data$quiz_score)\nif data was never created earlier in the document.\n\n\n\nMake sure this line appears first:\ndata &lt;- read.csv(\"mydata.csv\")\n\n\n\n\n\n\nError: object 'data' not found\n\n\n\nR does not know what data is.\n\n\n\nCreate the object first:\ndata &lt;- read.csv(\"mydata.csv\")\nThen run your analysis.\n\n\n\n\nThis is incorrect:\nread.csv(mydata.csv)\nThis is correct:\nread.csv(\"mydata.csv\")\nFile names must be in quotation marks.\n\n\n\nWhen something goes wrong, ask:\n\nDid I spell everything correctly?\nDid I use quotation marks around file names?\nDid I run the earlier lines of code?\nIs my file in the right folder?\nDoes file.exists(\"mydata.csv\") return TRUE?\nDid I close all parentheses?\nDid I restart RStudio and try again?\n\n\n\n\n\n\n\nNoteEncouragement\n\n\n\nErrors do not mean you are bad at R.\nErrors are part of learning. Read the message, try one fix, and run the code again.\n\n\n\n\n\n\n\n\n\n\n\nNotePractice\n\n\n\nFor each example, decide what the problem is.\n\n\nread.csv(mydata.csv)\nQuestion: What is missing?\n\n\n\nmean(data$quiz_score\nQuestion: What is missing?\n\n\n\nData &lt;- read.csv(\"mydata.csv\")\nhead(data)\nQuestion: Why might this fail?\n\n\n\n\n\n\n\nExample 1 is missing quotation marks around the file name.\nExample 2 is missing a closing parenthesis.\nExample 3 may fail because Data and data are different names in R.\n\n\n\n\nIn this section, you learned how to troubleshoot common problems, including:\n\nFile not found errors.\nPackage installation issues.\nTyping mistakes.\nWorking directory problems.\nRendering errors.\nObject not found errors.",
+    "text": "Everyone gets errors in R. Errors are normal.\nThe important skill is learning how to read the message and try a fix.\n\n\n\n\nError in file(file, \"rt\") : cannot open the connection\nor:\nNo such file or directory\n\n\n\nR cannot find your file.\n\n\n\nRun:\n\ngetwd()\n\n[1] \"/Users/ylim2/Documents/01_Work/01_MA213/R_onboarding/R_onboarding_repo/R_Onboarding\"\n\n\nThen check whether mydata.csv is inside that folder.\nAlso run:\n\nfile.exists(\"mydata.csv\")\n\n[1] TRUE\n\n\nIf the result is FALSE, R cannot find the file.\n\n\n\n\nMove mydata.csv into your project folder.\nCheck the spelling of the file name.\nMake sure the file ends in .csv.\nMake sure you are working in the correct folder.\n\n\n\n\n\n\n\nWarningCommon Mistake\n\n\n\nmydata.csv and mydata (1).csv are different file names.\n\n\n\n\n\n\nSometimes your instructor may ask you to install a package.\nExample:\ninstall.packages(\"ggplot2\")\n\n\n\nInternet connection problems.\nTyping the package name incorrectly.\nR asks you to restart.\nYou do not have permission to install software on the computer.\n\n\n\n\n\nCheck your internet connection.\nMake sure the package name is inside quotation marks.\nRestart RStudio and try again.\nAsk your instructor or campus IT for help if you are on a lab computer.\n\n\n\n\n\n\n\nTipTip\n\n\n\nYou only need to install a package once on your computer.\nBut you need to load it with library() each time you start a new R session.\n\n\n\n\n\n\nR is very picky about spelling.\nThese are all different to R:\nquiz_score\nQuiz_score\nquizscore\nquiz.score\n\n\n\n\n\n\n\n\n\n\nMistake\nExample\nFix\n\n\n\n\nMissing quote\nread.csv(mydata.csv)\nread.csv(\"mydata.csv\")\n\n\nMisspelled object\nquz_score\nquiz_score\n\n\nMissing parenthesis\nmean(data$quiz_score\nmean(data$quiz_score)\n\n\nWrong capitalization\nRead.csv()\nread.csv()\n\n\n\n\n\n\n\nIf R is looking in the wrong folder, it may not find your files.\nCheck the working directory with:\n\ngetwd()\n\n[1] \"/Users/ylim2/Documents/01_Work/01_MA213/R_onboarding/R_onboarding_repo/R_Onboarding\"\n\n\nIn RStudio, using an RStudio Project can help keep your working directory organized.\n\n\n\n\n\n\nTipTip\n\n\n\nFor each assignment or project, keep your script and data file in the same folder.\n\n\n\n\n\nWhen rendering a Quarto document, R runs the code from top to bottom.\nA document may fail to render if:\n\nA file is missing.\nA package is not loaded.\nAn object is used before it is created.\nThere is a typing mistake in a code chunk.\n\n\n\nThis can fail:\nmean(data$quiz_score)\nif data was never created earlier in the document.\n\n\n\nMake sure this line appears first:\ndata &lt;- read.csv(\"mydata.csv\")\n\n\n\n\n\n\nError: object 'data' not found\n\n\n\nR does not know what data is.\n\n\n\nCreate the object first:\ndata &lt;- read.csv(\"mydata.csv\")\nThen run your analysis.\n\n\n\n\nThis is incorrect:\nread.csv(mydata.csv)\nThis is correct:\nread.csv(\"mydata.csv\")\nFile names must be in quotation marks.\n\n\n\nWhen something goes wrong, ask:\n\nDid I spell everything correctly?\nDid I use quotation marks around file names?\nDid I run the earlier lines of code?\nIs my file in the right folder?\nDoes file.exists(\"mydata.csv\") return TRUE?\nDid I close all parentheses?\nDid I restart RStudio and try again?\n\n\n\n\n\n\n\nNoteEncouragement\n\n\n\nErrors do not mean you are bad at R.\nErrors are part of learning. Read the message, try one fix, and run the code again.\n\n\n\n\n\n\n\n\n\n\n\nNotePractice\n\n\n\nFor each example, decide what the problem is.\n\n\nread.csv(mydata.csv)\nQuestion: What is missing?\n\n\n\nmean(data$quiz_score\nQuestion: What is missing?\n\n\n\nData &lt;- read.csv(\"mydata.csv\")\nhead(data)\nQuestion: Why might this fail?\n\n\n\n\n\n\n\nExample 1 is missing quotation marks around the file name.\nExample 2 is missing a closing parenthesis.\nExample 3 may fail because Data and data are different names in R.\n\n\n\n\nIn this section, you learned how to troubleshoot common problems, including:\n\nFile not found errors.\nPackage installation issues.\nTyping mistakes.\nWorking directory problems.\nRendering errors.\nObject not found errors.",
     "crumbs": [
       "Common Problems and Solutions"
     ]
@@ -1034,7 +1164,7 @@
     "href": "09-common-problems.html#problem-1-file-not-found",
     "title": "Common Problems and Solutions",
     "section": "",
-    "text": "Error in file(file, \"rt\") : cannot open the connection\nor:\nNo such file or directory\n\n\n\nR cannot find your file.\n\n\n\nRun:\n\ngetwd()\n\n[1] \"/Users/ylim2/Documents/01_Work/01_MA213/R_onboarding/r-onboarding-guide\"\n\n\nThen check whether mydata.csv is inside that folder.\nAlso run:\n\nfile.exists(\"mydata.csv\")\n\n[1] TRUE\n\n\nIf the result is FALSE, R cannot find the file.\n\n\n\n\nMove mydata.csv into your project folder.\nCheck the spelling of the file name.\nMake sure the file ends in .csv.\nMake sure you are working in the correct folder.\n\n\n\n\n\n\n\nWarningCommon Mistake\n\n\n\nmydata.csv and mydata (1).csv are different file names.",
+    "text": "Error in file(file, \"rt\") : cannot open the connection\nor:\nNo such file or directory\n\n\n\nR cannot find your file.\n\n\n\nRun:\n\ngetwd()\n\n[1] \"/Users/ylim2/Documents/01_Work/01_MA213/R_onboarding/R_onboarding_repo/R_Onboarding\"\n\n\nThen check whether mydata.csv is inside that folder.\nAlso run:\n\nfile.exists(\"mydata.csv\")\n\n[1] TRUE\n\n\nIf the result is FALSE, R cannot find the file.\n\n\n\n\nMove mydata.csv into your project folder.\nCheck the spelling of the file name.\nMake sure the file ends in .csv.\nMake sure you are working in the correct folder.\n\n\n\n\n\n\n\nWarningCommon Mistake\n\n\n\nmydata.csv and mydata (1).csv are different file names.",
     "crumbs": [
       "Common Problems and Solutions"
     ]
@@ -1064,7 +1194,7 @@
     "href": "09-common-problems.html#problem-4-working-directory-problems",
     "title": "Common Problems and Solutions",
     "section": "",
-    "text": "If R is looking in the wrong folder, it may not find your files.\nCheck the working directory with:\n\ngetwd()\n\n[1] \"/Users/ylim2/Documents/01_Work/01_MA213/R_onboarding/r-onboarding-guide\"\n\n\nIn RStudio, using an RStudio Project can help keep your working directory organized.\n\n\n\n\n\n\nTipTip\n\n\n\nFor each assignment or project, keep your script and data file in the same folder.",
+    "text": "If R is looking in the wrong folder, it may not find your files.\nCheck the working directory with:\n\ngetwd()\n\n[1] \"/Users/ylim2/Documents/01_Work/01_MA213/R_onboarding/R_onboarding_repo/R_Onboarding\"\n\n\nIn RStudio, using an RStudio Project can help keep your working directory organized.\n\n\n\n\n\n\nTipTip\n\n\n\nFor each assignment or project, keep your script and data file in the same folder.",
     "crumbs": [
       "Common Problems and Solutions"
     ]
@@ -1140,133 +1270,13 @@
     ]
   },
   {
-    "objectID": "10-cheatsheet.html#rstudio-shortcuts",
-    "href": "10-cheatsheet.html#rstudio-shortcuts",
-    "title": "Quick Reference Cheat Sheet",
+    "objectID": "index.html#install-links",
+    "href": "index.html#install-links",
+    "title": "Welcome",
     "section": "",
-    "text": "Action\nWindows\nMac\n\n\n\n\nRun current line\nCtrl + Enter\nCmd + Enter\n\n\nSave file\nCtrl + S\nCmd + S\n\n\nFind text\nCtrl + F\nCmd + F\n\n\nComment/uncomment code\nCtrl + Shift + C\nCmd + Shift + C",
+    "text": "R download - available for Windows/Mac/Linux\nRStudio Desktop download - available for Windows/Mac/Linux",
     "crumbs": [
-      "Quick Reference Cheat Sheet"
-    ]
-  },
-  {
-    "objectID": "10-cheatsheet.html#important-rstudio-panes",
-    "href": "10-cheatsheet.html#important-rstudio-panes",
-    "title": "Quick Reference Cheat Sheet",
-    "section": "",
-    "text": "Pane\nPurpose\n\n\n\n\nSource\nWrite and save code\n\n\nConsole\nRun commands and see output\n\n\nEnvironment\nSee objects you created\n\n\nFiles\nFind files and folders\n\n\nPlots\nView graphs\n\n\nPackages\nManage add-on tools\n\n\nHelp\nSearch for help",
-    "crumbs": [
-      "Quick Reference Cheat Sheet"
-    ]
-  },
-  {
-    "objectID": "10-cheatsheet.html#common-r-commands",
-    "href": "10-cheatsheet.html#common-r-commands",
-    "title": "Quick Reference Cheat Sheet",
-    "section": "",
-    "text": "Goal\nCommand\n\n\n\n\nAdd numbers\n2 + 3\n\n\nStore a value\nx &lt;- 10\n\n\nPrint a value\nprint(x)\n\n\nCheck working directory\ngetwd()\n\n\nCheck if a file exists\nfile.exists(\"mydata.csv\")\n\n\nImport CSV\ndata &lt;- read.csv(\"mydata.csv\")\n\n\nView first rows\nhead(data)\n\n\nView structure\nstr(data)\n\n\nSummarize data\nsummary(data)\n\n\nView column names\nnames(data)\n\n\nCalculate a mean\nmean(data$quiz_score)\n\n\nMake a frequency table\ntable(data$major)\n\n\nMake a plot\nplot(data$study_hours, data$quiz_score)",
-    "crumbs": [
-      "Quick Reference Cheat Sheet"
-    ]
-  },
-  {
-    "objectID": "10-cheatsheet.html#file-management-tips",
-    "href": "10-cheatsheet.html#file-management-tips",
-    "title": "Quick Reference Cheat Sheet",
-    "section": "",
-    "text": "Keep your script and data file in the same project folder.\nUse clear file names.\nAvoid spaces in file names.\nUse underscores _ instead of spaces.\nAvoid saving important files only in Downloads.\nCheck your working directory with getwd().\nCheck whether R can find your file with file.exists().",
-    "crumbs": [
-      "Quick Reference Cheat Sheet"
-    ]
-  },
-  {
-    "objectID": "10-cheatsheet.html#good-file-names",
-    "href": "10-cheatsheet.html#good-file-names",
-    "title": "Quick Reference Cheat Sheet",
-    "section": "",
-    "text": "Good:\nfirst_script.R\nmydata.csv\nlab_report.qmd\nAvoid:\nUntitled1.R\nmy data final FINAL.csv\nlab report new version 2.qmd",
-    "crumbs": [
-      "Quick Reference Cheat Sheet"
-    ]
-  },
-  {
-    "objectID": "10-cheatsheet.html#importing-data",
-    "href": "10-cheatsheet.html#importing-data",
-    "title": "Quick Reference Cheat Sheet",
-    "section": "",
-    "text": "Use:\ndata &lt;- read.csv(\"mydata.csv\")\nThen inspect it:\nhead(data)\nstr(data)\nsummary(data)\nnames(data)",
-    "crumbs": [
-      "Quick Reference Cheat Sheet"
-    ]
-  },
-  {
-    "objectID": "10-cheatsheet.html#simple-analysis-examples",
-    "href": "10-cheatsheet.html#simple-analysis-examples",
-    "title": "Quick Reference Cheat Sheet",
-    "section": "",
-    "text": "Mean:\nmean(data$quiz_score)\nFrequency table:\ntable(data$major)\nScatterplot:\nplot(\n  data$study_hours,\n  data$quiz_score,\n  main = \"Study Hours and Quiz Score\",\n  xlab = \"Study Hours\",\n  ylab = \"Quiz Score\"\n)\nHistogram:\nhist(\n  data$quiz_score,\n  main = \"Distribution of Quiz Scores\",\n  xlab = \"Quiz Score\"\n)",
-    "crumbs": [
-      "Quick Reference Cheat Sheet"
-    ]
-  },
-  {
-    "objectID": "10-cheatsheet.html#common-errors-and-quick-fixes",
-    "href": "10-cheatsheet.html#common-errors-and-quick-fixes",
-    "title": "Quick Reference Cheat Sheet",
-    "section": "",
-    "text": "Problem\nPossible Fix\n\n\n\n\nFile not found\nCheck getwd() and file.exists(\"mydata.csv\")\n\n\nObject not found\nRun the code that creates the object\n\n\nTyping mistake\nCheck spelling and capitalization\n\n\nMissing quote\nPut file names in quotation marks\n\n\nMissing parenthesis\nMake sure every ( has a matching )\n\n\nRendering error\nRun the document from top to bottom and check earlier code\n\n\nPackage problem\nCheck spelling, install the package, then load it with library()",
-    "crumbs": [
-      "Quick Reference Cheat Sheet"
-    ]
-  },
-  {
-    "objectID": "10-cheatsheet.html#file-not-found-checklist",
-    "href": "10-cheatsheet.html#file-not-found-checklist",
-    "title": "Quick Reference Cheat Sheet",
-    "section": "",
-    "text": "If R cannot find your CSV file, try this:\ngetwd()\nfile.exists(\"mydata.csv\")\nIf file.exists(\"mydata.csv\") gives:\n[1] FALSE\nthen R cannot find the file in the current folder.\nCheck that:\n\nThe file is saved in your project folder.\nThe file name is exactly mydata.csv.\nThe file is not accidentally named mydata.csv.txt.\nYou are working in the correct folder.",
-    "crumbs": [
-      "Quick Reference Cheat Sheet"
-    ]
-  },
-  {
-    "objectID": "10-cheatsheet.html#object-names",
-    "href": "10-cheatsheet.html#object-names",
-    "title": "Quick Reference Cheat Sheet",
-    "section": "",
-    "text": "Good object names:\nquiz_score &lt;- 90\nstudy_hours &lt;- 6\nmy_data &lt;- read.csv(\"mydata.csv\")\nAvoid object names with spaces:\nquiz score &lt;- 90\nstudy hours &lt;- 6\nmy data &lt;- read.csv(\"mydata.csv\")",
-    "crumbs": [
-      "Quick Reference Cheat Sheet"
-    ]
-  },
-  {
-    "objectID": "10-cheatsheet.html#useful-beginner-habits",
-    "href": "10-cheatsheet.html#useful-beginner-habits",
-    "title": "Quick Reference Cheat Sheet",
-    "section": "",
-    "text": "Save your script often.\nRun code one small piece at a time.\nRead error messages slowly.\nCheck spelling carefully.\nKeep your data and script in the same folder.\nWrite short comments to explain your code.\nExplain your results in sentences.",
-    "crumbs": [
-      "Quick Reference Cheat Sheet"
-    ]
-  },
-  {
-    "objectID": "10-cheatsheet.html#a-complete-first-workflow",
-    "href": "10-cheatsheet.html#a-complete-first-workflow",
-    "title": "Quick Reference Cheat Sheet",
-    "section": "",
-    "text": "Here is a simple workflow from start to finish:\n# Check where R is looking for files\ngetwd()\n\n# Check whether the data file exists\nfile.exists(\"mydata.csv\")\n\n# Import the data\ndata &lt;- read.csv(\"mydata.csv\")\n\n# Look at the data\nhead(data)\nstr(data)\nsummary(data)\n\n# Calculate results\nmean(data$quiz_score)\ntable(data$major)\n\n# Make a plot\nplot(\n  data$study_hours,\n  data$quiz_score,\n  main = \"Study Hours and Quiz Score\",\n  xlab = \"Study Hours\",\n  ylab = \"Quiz Score\",\n  pch = 19,\n  col = \"steelblue\"\n)",
-    "crumbs": [
-      "Quick Reference Cheat Sheet"
-    ]
-  },
-  {
-    "objectID": "10-cheatsheet.html#final-reminder",
-    "href": "10-cheatsheet.html#final-reminder",
-    "title": "Quick Reference Cheat Sheet",
-    "section": "",
-    "text": "You now know how to complete a first basic R workflow:\n\nOpen RStudio.\nCreate a script.\nWrite code.\nSave your work.\nOrganize your files.\nImport a CSV dataset.\nInspect the data.\nCalculate simple results.\nExplain what the results mean.\n\nThat is a successful first R workflow!",
-    "crumbs": [
-      "Quick Reference Cheat Sheet"
+      "Welcome"
     ]
   }
 ]
